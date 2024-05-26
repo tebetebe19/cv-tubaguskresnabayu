@@ -9,11 +9,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $apiKey = 'patOfXXrrFlONQHUf.0004203fcb2ade7394645f29c1a344b84be783860e03799654d17ff125baf052';
-        $baseId = 'appvAcwxliQGFSFjP';
-        $tableForSale = 'tblUxvzQWBNVTLF1u';
-        $tableCategories = 'tblrtiNrq1Kc3vv1G';
-        $tableBenefit = 'tblvs7RI99inQLbIb';
+        $apiKey = env('AIRTABLE_KEY');
+        $baseId = env('AIRTABLE_BASE_ID');
+        $tableForSale = env('AIRTABLE_TABLE_FOR_SALE');
+        $tableCategories = env('AIRTABLE_TABLE_CATEGORIES');
+        $tableBenefit = env('AIRTABLE_TABLE_BENEFIT');
 
         $responseForSale = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
             ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableForSale);
@@ -37,9 +37,9 @@ class HomeController extends Controller
 
     public function cv()
     {
-        $apiKey = 'patOfXXrrFlONQHUf.0004203fcb2ade7394645f29c1a344b84be783860e03799654d17ff125baf052';
-        $baseId = 'appvAcwxliQGFSFjP';
-        $tableExp = 'tblaSBjahkJSaHXov';
+        $apiKey = env('AIRTABLE_KEY');
+        $baseId = env('AIRTABLE_BASE_ID');
+        $tableExp = env('AIRTABLE_TABLE_EXP');
 
         $responseExp = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
             ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableExp.'?sort[0][field]=sort');
