@@ -40,13 +40,40 @@ class HomeController extends Controller
         $apiKey = env('AIRTABLE_KEY');
         $baseId = env('AIRTABLE_BASE_ID');
         $tableExp = env('AIRTABLE_TABLE_EXP');
+        $tableCategories = env('AIRTABLE_TABLE_CATEGORIES');
+        $tableForSale = env('AIRTABLE_TABLE_FOR_SALE');
+        $tableLive = env('AIRTABLE_TABLE_LIVE');
 
+        // Fetch Experience
         $responseExp = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
             ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableExp.'?sort[0][field]=sort');
         $exp = json_decode($responseExp, true)['records'];
 
-        // return response($exp);
+        // Fetch For Sale Project
+        $responseLive = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
+            ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableLive);
+        $liveProject = json_decode($responseLive, true)['records'];
 
-        return view('neumorph.page.cv-new', compact('exp'));
+        // Fetch For Sale Project
+        $responseForSale = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
+            ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableForSale);
+        $forSale = json_decode($responseForSale, true)['records'];
+
+        // Fetch Categories
+        $responseCategories = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
+            ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableCategories);
+        $categories = json_decode($responseCategories, true)['records'];
+        // Filter For Sale Categories
+        $categoriesSale = collect($categories)->filter(function ($category) {
+            return $category['fields']['is_available'] == 1;
+        })->values()->all();
+        // Filter Live Categories
+        $categoriesLive = collect($categories)->filter(function ($category) {
+            return $category['fields']['is_available_live'] == 1;
+        })->values()->all();
+
+        // return response($liveProject);
+
+        return view('neumorph.page.cv-new', compact('exp', 'categoriesSale', 'categoriesLive', 'forSale', 'liveProject'));
     }
 }

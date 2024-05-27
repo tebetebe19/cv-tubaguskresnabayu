@@ -18,9 +18,20 @@
                         Who Am I
                     </div>
                 </a>
-                <a href="#proj" {{ Request::is('*cv*') ? 'hidden' : '' }}>
+                <a href="#exp2" {{ Request::is('*cv*') ? '' : 'hidden' }}>
+                    <div id="nav-exp2" class="">
+                        Experiences
+                    </div>
+                </a>
+
+                <a href="#proj-live" {{ Request::is('*cv*') ? '' : 'hidden' }}>
+                    <div id="nav-proj-live" class="">
+                        Live Projects
+                    </div>
+                </a>
+                <a href="#proj">
                     <div id="nav-proj" class="">
-                        Projects
+                        {{ Request::is('*cv*') ? 'Training' : '' }} Projects
                     </div>
                 </a>
                 <a href="#what" {{ Request::is('*cv*') ? 'hidden' : '' }}>
@@ -31,16 +42,6 @@
                 <a href="#pricing" {{ Request::is('*cv*') ? 'hidden' : '' }}>
                     <div id="nav-pricing" class="">
                         Pricing
-                    </div>
-                </a>
-                <a href="#exp2" {{ Request::is('*cv*') ? '' : 'hidden' }}>
-                    <div id="nav-exp2" class="">
-                        Experiences
-                    </div>
-                </a>
-                <a href="#proj" {{ Request::is('*cv*') ? '' : 'hidden' }}>
-                    <div id="nav-projj" class="">
-                        <strike>Live Projects</strike> <i class="fas fa-hard-hat"></i>
                     </div>
                 </a>
                 <a href="#skill" {{ Request::is('*cv*') ? '' : 'hidden' }}>

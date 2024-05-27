@@ -191,99 +191,125 @@
         @endforeach
     </section>
 
-    {{-- <section class="container" id="proj">
-    <h1 class="section-title">Live Projects</h1>
-    <div class="row">
-        @foreach ($proj->reverse() as $proj)
-        <div class="col-12 col-lg-4 mb-4">
-            <div class="card card-morph-pop">
-                <div class="card-body text-center">
-                    <div class="proj-image">
-                        <img src="{{asset('../assets/img/thumbnail/'.$proj->thumbnail)}}" alt="">
-                    </div>
-                    <h4>
-                        {{$proj->judul}}
-                    </h4>
-                    <h5>
-                        {!!$proj->deskripsi!!}
-                    </h5>
+    <section class="container" id="proj-live">
+        <h1 class="section-title">Live Projects</h1>
+        <div uk-filter="target: .js-filter">
 
-                    <div class="row proj-button">
-                        <div class="col-6">
-                            <a href="{{$proj->link_asli}}" target="blank_">
-                                <div class="card card-morph-pop">
-                                    <div class="card-body">
-                                        Live Web
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-6">
-                            <a href="{{$proj->link_local}}" target="blank_">
-                                <div class="card card-morph-pop">
-                                    <div class="card-body">
-                                        Local Preview
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+            <div class="uk-subnav uk-subnav-pill">
+                <div class="row justify-content-around">
+                    <div class="col-lg-2 col-6">
+                        <button class="uk-active card-morph-pop" uk-filter-control=".all">All Web</button>
                     </div>
+                    @foreach ($categoriesLive as $item)
+                        <div class="col-lg-2 col-6">
+                            <button class="card-morph-pop"
+                                uk-filter-control=".{{ $item['fields']['slug'] }}">{{ $item['fields']['name'] }}
+                            </button>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-        </div>
-        @endforeach
-    </div>
-</section> --}}
 
-    {{-- <section class="container proj-forsale" id="proj">
-    <h1 class="section-title">Free Time Projects</h1>
+            <div class="row js-filter uk-child-width-1-2 uk-child-width-1-3@m uk-text-center">
+                @foreach ($liveProject as $item)
+                    <div
+                        class="col-12 col-lg-4 mb-4 @foreach ($item['fields']['categoriesSlug'] as $categories) {{ $categories }} @endforeach all">
+                        <div class="card card-morph-pop">
+                            <div class="card-body text-center">
+                                <div class="proj-image">
+                                    <img src="{{ $item['fields']['thumbnail'][0]['url'] }}" alt="">
+                                </div>
+                                <h4>
+                                    {{ $item['fields']['name'] }}
+                                </h4>
+                                <h5>
+                                    {{ $item['fields']['categories'] }}
+                                </h5>
 
-    <div uk-filter="target: .js-filter">
-
-        <div class="uk-subnav uk-subnav-pill">
-            <div class="row justify-content-around">
-                <div class="col-lg-2 col-6">
-                    <button class="uk-active card-morph-pop" uk-filter-control=".all">All Web</button>
-                </div>
-                @foreach ($kate->unique('kategori') as $item)
-                <div class="col-lg-2 col-6">
-                    <button class="card-morph-pop" uk-filter-control=".{{$item->kategori}}">{{$item->kategori}}</button>
-                </div>
-                @endforeach
-            </div>
-        </div>
-
-        <div class="row js-filter uk-child-width-1-2 uk-child-width-1-3@m uk-text-center">
-            @foreach ($sale as $proj)
-            <div class="col-6 col-lg-4 mb-4 {{$proj->kategori}} all">
-                <div class="card card-morph-pop">
-                    <div class="card-body text-center">
-                        <div class="proj-image">
-                            <img src="{{asset('../assets/img/forsale/'.$proj->thumbnail)}}" alt="" style="width: 100%">
-                        </div>
-                        <h4 class="mb-3">
-                            {{$proj->judul}}
-                        </h4>
-    
-                        <div class="row justify-content-center proj-button">
-                            <div class="col-lg-6 col-12">
-                                <a href="{{$proj->link_asli}}" target="blank_">
-                                    <div class="card card-morph-pop">
-                                        <div class="card-body">
-                                            Live Preview
-                                        </div>
+                                <div class="row proj-button">
+                                    <div class="col-6">
+                                        <a href="{{ $item['fields']['url_live'] }}" target="blank_">
+                                            <div class="card card-morph-pop">
+                                                <div class="card-body">
+                                                    Live Web
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
-                                </a>
+                                    <div class="col-6">
+                                        <a href="{{ $item['fields']['url_local'] }}" target="blank_">
+                                            <div class="card card-morph-pop">
+                                                <div class="card-body">
+                                                    Local Preview
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <section class="container proj-forsale" id="proj">
+        <h1 class="section-title">Training Projects</h1>
+
+        <div uk-filter="target: .js-filter">
+
+            <div class="uk-subnav uk-subnav-pill">
+                <div class="row justify-content-around">
+                    <div class="col-lg-2 col-6">
+                        <button class="uk-active card-morph-pop" uk-filter-control=".all">All Web</button>
+                    </div>
+                    @foreach ($categoriesSale as $item)
+                        <div class="col-lg-2 col-6">
+                            <button class="card-morph-pop"
+                                uk-filter-control=".{{ $item['fields']['slug'] }}">{{ $item['fields']['name'] }}
+                            </button>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-            @endforeach
-        </div>
 
-    </div>
-</section> --}}
+            <div class="row js-filter uk-child-width-1-2 uk-child-width-1-3@m uk-text-center">
+                @foreach ($forSale as $item)
+                    <div
+                        class="col-6 col-lg-4 mb-4 @foreach ($item['fields']['categoriesSlug'] as $categories) {{ $categories }} @endforeach all">
+                        <div class="card card-morph-pop">
+                            <div class="card-body text-center">
+                                <div class="proj-image">
+                                    <img src="{{ $item['fields']['thumbnail'][0]['url'] }}" alt=""
+                                        style="width: 100%">
+                                </div>
+                                <h4 class="mb-3">
+                                    {{ $item['fields']['name'] }}
+                                </h4>
+                                <h5>
+                                    {{ $item['fields']['categories'] }}
+                                </h5>
+
+                                <div class="row justify-content-center proj-button">
+                                    <div class="col-lg-6 col-12">
+                                        <a href="{{ $item['fields']['link_preview'] }}" target="blank_">
+                                            <div class="card card-morph-pop">
+                                                <div class="card-body">
+                                                    Live Preview
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+        </div>
+    </section>
 
     {{-- <section class="container" id="skill">
     <h1 class="section-title">Skills</h1>
@@ -409,26 +435,21 @@
             var intro = $("#intro").offset().top;
             var who = $("#who").offset().top;
             var exp2 = $("#exp2").offset().top;
-            // var proj = $("#proj").offset().top;
-            // var skill = $("#skill").offset().top;
+            var proj = $("#proj").offset().top;
+            var proj_live = $("#proj-live").offset().top;
             var edu = $("#edu").offset().top;
-            // var form = $("#form").offset().top;
 
             $(window).scroll(function() {
                 console.log(window);
                 var screen_pos = $(window).scrollTop() + Math.floor($(window).height() / 2);
-                // $('#nav-intro').toggleClass("button-morph-drop", (screen_pos >= intro && screen_pos < who));
-                // $('#nav-who').toggleClass("button-morph-drop", (screen_pos >= who && screen_pos < exp2));
-                // $('#nav-exp2').toggleClass("button-morph-drop", (screen_pos >= exp2 && screen_pos < proj));
-                // $('#nav-projj').toggleClass("button-morph-drop", (screen_pos >= proj && screen_pos <
-                // skill));
-                // $('#nav-skill').toggleClass("button-morph-drop", (screen_pos >= skill && screen_pos < edu));
-                // $('#nav-edu').toggleClass("button-morph-drop", (screen_pos >= edu && screen_pos < form));
-                // $('#nav-form').toggleClass("button-morph-drop", (screen_pos >= form));
-
                 $('#nav-intro').toggleClass("button-morph-drop", (screen_pos >= intro && screen_pos < who));
                 $('#nav-who').toggleClass("button-morph-drop", (screen_pos >= who && screen_pos < exp2));
-                $('#nav-exp2').toggleClass("button-morph-drop", (screen_pos >= exp2 && screen_pos < edu));
+                $('#nav-exp2').toggleClass("button-morph-drop", (screen_pos >= exp2 && screen_pos <
+                    proj_live));
+                $('#nav-proj-live').toggleClass("button-morph-drop", (screen_pos >= proj_live &&
+                    screen_pos < proj));
+                $('#nav-proj').toggleClass("button-morph-drop", (screen_pos >= proj && screen_pos <
+                    edu));
                 $('#nav-edu').toggleClass("button-morph-drop", (screen_pos >= edu));
             });
         });

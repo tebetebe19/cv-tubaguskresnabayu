@@ -436,13 +436,16 @@ p {
   background-color: red;
 }
 
+#proj-live,
 #proj {
   padding-top: 50px;
   padding-bottom: 50px;
 }
+#proj-live .proj-image,
 #proj .proj-image {
   margin-bottom: 20px;
 }
+#proj-live .proj-image img,
 #proj .proj-image img {
   width: 100%;
   height: 200px;

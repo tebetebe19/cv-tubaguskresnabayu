@@ -1,0 +1,71 @@
+{
+    "affiliate_reference_id": ".............",
+    "hold": false,
+    "email": "tubagus@vhiweb.com",
+    "phone": {
+        "country_code": "62",
+        "area_code": "null",
+        "number": "89620044937"
+    },
+    "rooms": [
+        {
+            "given_name": "Tubagus",
+            "family_name": "Bayu",
+            "smoking": false,
+            "special_request": "1 Extra towel",
+            "loyalty_id": null,
+            "loyalty": {
+                "member_id": null,
+                "program_id": null
+            }
+        },
+        {
+            "given_name": "Audrey",
+            "family_name": "Quinzha",
+            "smoking": false,
+            "special_request": "Sea view",
+            "loyalty_id": null,
+            "loyalty": {
+                "member_id": null,
+                "program_id": null
+            }
+        }
+    ],
+    "payments": [
+        {
+            "type": "customer_card",
+            "number": "4111111111111111",
+            "security_code": "123",
+            "expiration_month": "08",
+            "expiration_year": "2025",
+            "billing_contact": {
+                "given_name": "Golden Rama",
+                "family_name": "Golden Rama",
+                "address": {
+                    "line_1": "Tanah Abang",
+                    "line_2": "Center of Jakarta",
+                    "line_3": "Jakarta",
+                    "city": "Jakarta",
+                    "state_province_code": "JKT",
+                    "postal_code": "10160",
+                    "country_code": "ID"
+                }
+            },
+            "enrollment_date": "2018-09-15",
+            "third_party_authentication": {
+                "cavv": "jELUbgG+Tgj0AREBDMLeCad+oIs=",
+                "eci": "05",
+                "three_ds_version": "2.2.0",
+                "ds_transaction_id": "ac01cc2b-c1a1-4981-8c6f-400d4eec88de",
+                "pa_res_status": "Y",
+                "ve_res_status": "C",
+                "xid": "47133847-13be-4ae3-9be9-e4053b9c83c0",
+                "cavv_algorithm": "3",
+                "ucaf_indicator": "0"
+            }
+        }
+    ],
+    "affiliate_metadata": "data_point_1:123|data_point2:This is data.",
+    "tax_registration_number": "12345678910",
+    "traveler_handling_instructions": "Please use the card provided for payment. Avoid cancelation as this is for a corporate traveler. Contact traveler if any issues."
+}
