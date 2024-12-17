@@ -179,13 +179,17 @@ ul {
 .card-morph-pop {
     background-color: $background-color_4;
     border-radius: 10px;
-    box-shadow: 2px 2px 2px #25282d, -2px -2px 2px #4d525a;
+    box-shadow:
+        2px 2px 2px #25282d,
+        -2px -2px 2px #4d525a;
 }
 .button-morph-pop {
     background-color: $background-color_4;
     text-align: center;
     border-radius: 10px;
-    box-shadow: 2px 2px 2px #25282d, -2px -2px 2px #4d525a;
+    box-shadow:
+        2px 2px 2px #25282d,
+        -2px -2px 2px #4d525a;
     width: 100%;
     padding: 5px 0px;
 }
@@ -193,17 +197,29 @@ ul {
     background: var(--primary-new);
     border-radius: 10px;
     -webkit-appearance: none;
-    box-shadow: inset 2px 2px 2px #25282d, inset -2px -2px 2px #4d525a;
-    -webkit-box-shadow: inset 2px 2px 2px #25282d, inset -2px -2px 2px #4d525a;
-    -moz-box-shadow: inset 2px 2px 2px #25282d, inset -2px -2px 2px #4d525a;
+    box-shadow:
+        inset 2px 2px 2px #25282d,
+        inset -2px -2px 2px #4d525a;
+    -webkit-box-shadow:
+        inset 2px 2px 2px #25282d,
+        inset -2px -2px 2px #4d525a;
+    -moz-box-shadow:
+        inset 2px 2px 2px #25282d,
+        inset -2px -2px 2px #4d525a;
 }
 .button-morph-drop {
     background-color: $background-color_4;
     text-align: center;
     border-radius: 10px;
-    box-shadow: inset 2px 2px 2px #25282d, inset -2px -2px 2px #4d525a;
-    -webkit-box-shadow: inset 2px 2px 2px #25282d, inset -2px -2px 2px #4d525a;
-    -moz-box-shadow: inset 2px 2px 2px #25282d, inset -2px -2px 2px #4d525a;
+    box-shadow:
+        inset 2px 2px 2px #25282d,
+        inset -2px -2px 2px #4d525a;
+    -webkit-box-shadow:
+        inset 2px 2px 2px #25282d,
+        inset -2px -2px 2px #4d525a;
+    -moz-box-shadow:
+        inset 2px 2px 2px #25282d,
+        inset -2px -2px 2px #4d525a;
     width: 100%;
     padding: 5px 0px;
 }
@@ -211,7 +227,9 @@ ul {
     font-weight: 900;
     font-size: 60px;
     color: $color_5;
-    text-shadow: 2px 2px 2px rgb(43, 45, 49), -2px -2px 2px #959799;
+    text-shadow:
+        2px 2px 2px rgb(43, 45, 49),
+        -2px -2px 2px #959799;
 }
 h1 {
     color: $color_1;
@@ -304,7 +322,7 @@ p {
         }
     }
 }
-#what {
+#benefit {
     padding-top: 50px;
     padding-bottom: 50px;
     .card-what {
@@ -440,9 +458,57 @@ p {
         margin-bottom: 20px;
         img {
             width: 100%;
-            height: 200px;
+            // height: 200px;
             object-fit: cover;
+            object-position: 50% 0px;
             border-radius: 10px;
+            aspect-ratio: 18/9;
+        }
+    }
+    .modal {
+        .modal-content {
+            background-color: transparent;
+        }
+        .modal-body {
+            position: relative;
+            > button {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                opacity: 100%;
+                z-index: 100;
+                background-color: white;
+                color: black;
+            }
+            .carousel {
+                height: 100%;
+                .carousel-inner {
+                    height: 100%;
+                    .carousel-item {
+                        height: 100%;
+                        .box {
+                            // background-color: red;
+                            height: 100%;
+                            text-align: center;
+                            line-height: 100%;
+                            display: flex;
+                            background-color: transparent;
+                            img {
+                                display: inline-block;
+                                vertical-align: middle;
+                                line-height: normal;
+                                height: 100%;
+                            }
+                            @media only screen and (max-width: 600px) {
+                                img {
+                                    width: 100%;
+                                    object-fit: contain;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -519,7 +585,9 @@ input {
     width: 14px;
 }
 ::-webkit-scrollbar-track {
-    box-shadow: inset 2px 2px 2px #25282d, inset -2px -2px 2px #4d525a;
+    box-shadow:
+        inset 2px 2px 2px #25282d,
+        inset -2px -2px 2px #4d525a;
     border-radius: 0px;
 }
 ::-webkit-scrollbar-thumb {
@@ -714,9 +782,15 @@ button {
     background: var(--primary-new);
     border-radius: 10px;
     -webkit-appearance: none;
-    box-shadow: inset 2px 2px 2px #25282d, inset -2px -2px 2px #4d525a;
-    -webkit-box-shadow: inset 2px 2px 2px #25282d, inset -2px -2px 2px #4d525a;
-    -moz-box-shadow: inset 2px 2px 2px #25282d, inset -2px -2px 2px #4d525a;
+    box-shadow:
+        inset 2px 2px 2px #25282d,
+        inset -2px -2px 2px #4d525a;
+    -webkit-box-shadow:
+        inset 2px 2px 2px #25282d,
+        inset -2px -2px 2px #4d525a;
+    -moz-box-shadow:
+        inset 2px 2px 2px #25282d,
+        inset -2px -2px 2px #4d525a;
 }
 @media only screen and (max-width: 600px) {
     .phone-hide {

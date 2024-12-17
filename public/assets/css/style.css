@@ -132,7 +132,8 @@ a:hover {
   max-height: 200px;
   width: 400px;
   margin: 10px auto;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .remove-image {
@@ -310,16 +311,17 @@ p {
 #who .picture .outer .inner img {
   width: 300px;
   height: 300px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 300px;
   margin: auto;
 }
 
-#what {
+#benefit {
   padding-top: 50px;
   padding-bottom: 50px;
 }
-#what .card-what {
+#benefit .card-what {
   padding: 30px;
   margin-bottom: 24px;
 }
@@ -448,9 +450,65 @@ p {
 #proj-live .proj-image img,
 #proj .proj-image img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 0px;
+     object-position: 50% 0px;
   border-radius: 10px;
+  aspect-ratio: 18/9;
+}
+#proj-live .modal .modal-content,
+#proj .modal .modal-content {
+  background-color: transparent;
+}
+#proj-live .modal .modal-body,
+#proj .modal .modal-body {
+  position: relative;
+}
+#proj-live .modal .modal-body > button,
+#proj .modal .modal-body > button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  opacity: 100%;
+  z-index: 100;
+  background-color: white;
+  color: black;
+}
+#proj-live .modal .modal-body .carousel,
+#proj .modal .modal-body .carousel {
+  height: 100%;
+}
+#proj-live .modal .modal-body .carousel .carousel-inner,
+#proj .modal .modal-body .carousel .carousel-inner {
+  height: 100%;
+}
+#proj-live .modal .modal-body .carousel .carousel-inner .carousel-item,
+#proj .modal .modal-body .carousel .carousel-inner .carousel-item {
+  height: 100%;
+}
+#proj-live .modal .modal-body .carousel .carousel-inner .carousel-item .box,
+#proj .modal .modal-body .carousel .carousel-inner .carousel-item .box {
+  height: 100%;
+  text-align: center;
+  line-height: 100%;
+  display: flex;
+  background-color: transparent;
+}
+#proj-live .modal .modal-body .carousel .carousel-inner .carousel-item .box img,
+#proj .modal .modal-body .carousel .carousel-inner .carousel-item .box img {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  height: 100%;
+}
+@media only screen and (max-width: 600px) {
+  #proj-live .modal .modal-body .carousel .carousel-inner .carousel-item .box img,
+  #proj .modal .modal-body .carousel .carousel-inner .carousel-item .box img {
+    width: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
 }
 
 #skill {
@@ -491,6 +549,10 @@ p {
 }
 #form label {
   font-weight: bolder;
+}
+#form::-moz-placeholder {
+  color: white;
+  opacity: 1;
 }
 #form::placeholder {
   color: white;

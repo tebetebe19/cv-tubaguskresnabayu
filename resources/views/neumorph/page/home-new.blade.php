@@ -5,25 +5,14 @@
         <div class="card">
             <div class="card-body">
                 <div class="bag">
-                    <h1>Tubagus Kresna Bayu</h1>
-                    <h5>13 October 1996</h5>
+                    <h1>Big Digital Development</h1>
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                Business Analyst
-                            </div>
-                            <div class="carousel-item">
-                                Project Manager
-                            </div>
-                            <div class="carousel-item">
-                                UI/UX Designer
-                            </div>
-                            <div class="carousel-item">
-                                UI Engineer
-                            </div>
-                            <div class="carousel-item">
-                                Father
-                            </div>
+                            @foreach ($categoriesexpProject as $item)
+                                <div class="carousel-item {{ $loop->first ? 'active' : ' ' }}">
+                                    {{ $item['fields']['name'] }}
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="icons">
@@ -65,7 +54,7 @@
 
     <section class="container full-page" id="who">
         <div class="wrapper">
-            <h1 class="section-title">Who Am I</h1>
+            <h1 class="section-title">Who We Are</h1>
             <div class="row bagger" style="">
                 <div class="col-lg-3 second-phone" style="">
                     <div class="row" style="">
@@ -116,15 +105,15 @@
                         <div class="col-lg-12" style="">
                             <div class="card-what">
                                 <div class="bag">
-                                    <h4>Front End Engineer</h4>
+                                    <h4>Mobile & Web Developer</h4>
                                     <div class="card card-morph-pop">
                                         <div class="card-body">
-                                            <i class="fas fa-random"></i>
+                                            <i class="fa-solid fa-code"></i>
                                         </div>
                                     </div>
                                 </div>
                                 <p>
-                                    Your website design translator from Figma, Photoshop, or any web design tools into a
+                                    Your technical design translator from Figma, Photoshop, or any web design tools into a
                                     real website
                                 </p>
                             </div>
@@ -132,15 +121,15 @@
                         <div class="col-lg-12" style="">
                             <div class="card-what">
                                 <div class="bag">
-                                    <h4>Father</h4>
+                                    <h4>Project Manager</h4>
                                     <div class="card card-morph-pop">
                                         <div class="card-body">
-                                            <i class="fas fa-baby-carriage"></i>
+                                            <i class="fas fa-tasks"></i>
                                         </div>
                                     </div>
                                 </div>
                                 <p>
-                                    She is cute, and the only reason why iam still here <i class="fas fa-baby"></i>
+                                    Keeping the timeline always inline within the expectation, and makes everyone happy
                                 </p>
                             </div>
                         </div>
@@ -150,18 +139,17 @@
         </div>
     </section>
 
-    <section class="container proj-forsale" id="proj">
-        <h1 class="section-title">For Sale Webs</h1>
-
+    <section class="container" id="proj-live">
+        <h1 class="section-title">We Are Part of These</h1>
         <div uk-filter="target: .js-filter">
 
             <div class="uk-subnav uk-subnav-pill">
-                <div class="row justify-content-around">
-                    <div class="col-lg-2 col-6">
-                        <button class="uk-active card-morph-pop" uk-filter-control=".all">All Web</button>
+                <div class="row justify-content-center">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                        <button class="uk-active card-morph-pop" uk-filter-control=".all">Semua Project</button>
                     </div>
-                    @foreach ($categories as $item)
-                        <div class="col-lg-2 col-6">
+                    @foreach ($categoriesexpProject as $item)
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                             <button class="card-morph-pop"
                                 uk-filter-control=".{{ $item['fields']['slug'] }}">{{ $item['fields']['name'] }}
                             </button>
@@ -171,31 +159,65 @@
             </div>
 
             <div class="row js-filter uk-child-width-1-2 uk-child-width-1-3@m uk-text-center">
-                @foreach ($forSale as $item)
+                @foreach ($filteredexpProject as $item)
                     <div
-                        class="col-6 col-lg-4 mb-4 @foreach ($item['fields']['categoriesSlug'] as $categories) {{ $categories }} @endforeach all">
+                        class="col-lg-4 col-md-6 col-12 mb-4 @foreach ($item['fields']['category_slug'] as $categories) {{ $categories }} @endforeach all">
                         <div class="card card-morph-pop">
                             <div class="card-body text-center">
-                                <div class="proj-image">
-                                    <img src="{{ $item['fields']['thumbnail'][0]['url'] }}" alt=""
-                                        style="width: 100%">
+                                <div class="proj-image" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#{{ $item['id'] }}">
+                                    <img src="{{ $item['fields']['screenshots'][0]['url'] }}" alt="">
                                 </div>
-                                <h4 class="mb-3">
+                                <h4>
                                     {{ $item['fields']['name'] }}
                                 </h4>
                                 <h5>
-                                    $ {{ $item['fields']['price_dollar'] }} / Rp {{ $item['fields']['price_rp'] }}
+                                    @foreach ($item['fields']['category_name'] as $cate)
+                                        {{ $cate }} {{ $loop->last ? '' : ', ' }}
+                                    @endforeach
                                 </h5>
-
-                                <div class="row justify-content-center proj-button">
-                                    <div class="col-lg-6 col-12">
-                                        <a href="{{ $item['fields']['link_preview'] }}" target="blank_">
-                                            <div class="card card-morph-pop">
-                                                <div class="card-body">
-                                                    Live Preview
+                                <div class="modal fade" id="{{ $item['id'] }}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-fullscreen">
+                                        <div class="modal-content">
+                                            {{-- <div class="modal-header">
+                                                <h5 class="modal-title">Modal title</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div> --}}
+                                            <div class="modal-body">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                                <div id="carousel{{ $item['id'] }}" class="carousel slide"
+                                                    data-bs-ride="carousel">
+                                                    <div class="carousel-inner">
+                                                        @foreach ($item['fields']['screenshots'] as $img)
+                                                            <div
+                                                                class="carousel-item {{ $loop->first ? 'active' : ' ' }}">
+                                                                <div class="box">
+                                                                    <img src="{{ $img['url'] }}"
+                                                                        class="mx-auto my-auto d-block" style="">
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+                                                    <button class="carousel-control-prev" type="button"
+                                                        data-bs-target="#carousel{{ $item['id'] }}"
+                                                        data-bs-slide="prev">
+                                                        <span class="carousel-control-prev-icon"
+                                                            aria-hidden="true"></span>
+                                                        <span class="visually-hidden">Previous</span>
+                                                    </button>
+                                                    <button class="carousel-control-next" type="button"
+                                                        data-bs-target="#carousel{{ $item['id'] }}"
+                                                        data-bs-slide="next">
+                                                        <span class="carousel-control-next-icon"
+                                                            aria-hidden="true"></span>
+                                                        <span class="visually-hidden">Next</span>
+                                                    </button>
                                                 </div>
                                             </div>
-                                        </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -203,11 +225,10 @@
                     </div>
                 @endforeach
             </div>
-
         </div>
     </section>
 
-    <section class="container" id="what">
+    <section class="container" id="benefit">
         <div class="wrapper">
             <h1 class="section-title">What You Might Get</h1>
             <div class="row">
@@ -461,53 +482,9 @@
         </div>
     </section> --}}
 
-    {{-- <section class="container" id="proj">
-        <h1 class="section-title">Live Projects</h1>
-        <div class="row">
-            @foreach ($forSale->reverse() as $item)
-                <div class="col-12 col-lg-4 mb-4">
-                    <div class="card card-morph-pop">
-                        <div class="card-body text-center">
-                            <div class="proj-image">
-                                <img src="{{ $item['fields']['thumbnail'][0]['url'] }}" alt="">
-                            </div>
-                            <h4>
-                                {{ $item['fields']['name'] }}
-                            </h4>
-                            <h5>
-                                {!! $proj->deskripsi !!}
-                            </h5>
-
-                            <div class="row proj-button">
-                                <div class="col-6">
-                                    <a href="{{ $proj->link_asli }}" target="blank_">
-                                        <div class="card card-morph-pop">
-                                            <div class="card-body">
-                                                Live Web
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-6">
-                                    <a href="{{ $proj->link_local }}" target="blank_">
-                                        <div class="card card-morph-pop">
-                                            <div class="card-body">
-                                                Local Preview
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </section> --}}
-
     <section class="container full-page" id="form">
         <div class="wrapper">
-            <h1 class="section-title">Getting Closer to Me</h1>
+            <h1 class="section-title">Getting Closer to Us</h1>
             <form action="" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
@@ -579,19 +556,11 @@
 
 @section('js')
     <script>
-        let products = @json($forSale);
-        console.log(products);
-        // users.forEach(user => {
-        //     console.log(user.name);
-        // });
-    </script>
-
-    <script>
         $(document).ready(function() {
             var intro = $("#intro").offset().top;
             var who = $("#who").offset().top;
-            var proj = $("#proj").offset().top;
-            var what = $("#what").offset().top;
+            var proj = $("#proj-live").offset().top;
+            var benefit = $("#benefit").offset().top;
             var pricing = $("#pricing").offset().top;
             var form = $("#form").offset().top;
             console.log();
@@ -599,11 +568,12 @@
                 var screen_pos = $(window).scrollTop() + Math.floor($(window).height() / 2);
                 $('#nav-intro').toggleClass("button-morph-drop", (screen_pos >= intro && screen_pos < who));
                 $('#nav-who').toggleClass("button-morph-drop", (screen_pos >= who && screen_pos < proj));
-                $('#nav-proj').toggleClass("button-morph-drop", (screen_pos >= proj && screen_pos < what));
-                $('#nav-what').toggleClass("button-morph-drop", (screen_pos >= what && screen_pos <
-                    pricing));
-                $('#nav-pricing').toggleClass("button-morph-drop", (screen_pos >= pricing && screen_pos <
+                $('#nav-proj').toggleClass("button-morph-drop", (screen_pos >= proj && screen_pos <
+                    benefit));
+                $('#nav-benefit').toggleClass("button-morph-drop", (screen_pos >= benefit && screen_pos <
                     form));
+                // $('#nav-pricing').toggleClass("button-morph-drop", (screen_pos >= pricing && screen_pos <
+                //     form));
                 $('#nav-form').toggleClass("button-morph-drop", (screen_pos >= form));
             });
         });
