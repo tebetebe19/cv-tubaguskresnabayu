@@ -41,12 +41,6 @@
     <!-- Style -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
-    <!-- Splide CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/splide.min.css') }}">
-
-    <!-- Animation CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/cssanimation.min.css') }}">
-
     <title>Tubagus Kresna Bayu</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/logo/tab-icon.png') }}">
 </head>

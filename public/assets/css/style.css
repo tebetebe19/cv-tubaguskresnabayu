@@ -267,11 +267,11 @@ p {
   height: 100vh;
 }
 #intro > .card {
-  background-color: transparent;
+  background-color: var(--primary-new);
   border: none;
   height: 500px;
 }
-#intro .card-body {
+#intro > .card .card-body {
   height: 300px;
   display: flex;
   align-items: center;
@@ -279,7 +279,7 @@ p {
   text-align: center;
   position: relative;
 }
-#intro .carousel {
+#intro > .card .card-body .carousel {
   margin-top: 15px;
 }
 
@@ -439,16 +439,21 @@ p {
 }
 
 #proj-live,
-#proj {
+#proj-sale {
   padding-top: 50px;
   padding-bottom: 50px;
 }
-#proj-live .proj-image,
-#proj .proj-image {
+#proj-live .card,
+#proj-sale .card {
+  display: flex;
+  flex-direction: column;
+}
+#proj-live .card .card-body .proj-image,
+#proj-sale .card .card-body .proj-image {
   margin-bottom: 20px;
 }
-#proj-live .proj-image img,
-#proj .proj-image img {
+#proj-live .card .card-body .proj-image img,
+#proj-sale .card .card-body .proj-image img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -457,16 +462,31 @@ p {
   border-radius: 10px;
   aspect-ratio: 18/9;
 }
-#proj-live .modal .modal-content,
-#proj .modal .modal-content {
+#proj-live .card .card-body a,
+#proj-sale .card .card-body a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+}
+#proj-live .card .card-body a .button-morph-pop,
+#proj-sale .card .card-body a .button-morph-pop {
+  text-align: center;
+  width: 80%;
+  margin-top: 10px;
+  padding-bottom: 5px;
+  font-size: 12px;
+}
+#proj-live .card .card-body .modal .modal-content,
+#proj-sale .card .card-body .modal .modal-content {
   background-color: transparent;
 }
-#proj-live .modal .modal-body,
-#proj .modal .modal-body {
+#proj-live .card .card-body .modal .modal-body,
+#proj-sale .card .card-body .modal .modal-body {
   position: relative;
 }
-#proj-live .modal .modal-body > button,
-#proj .modal .modal-body > button {
+#proj-live .card .card-body .modal .modal-body > button,
+#proj-sale .card .card-body .modal .modal-body > button {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -475,36 +495,36 @@ p {
   background-color: white;
   color: black;
 }
-#proj-live .modal .modal-body .carousel,
-#proj .modal .modal-body .carousel {
+#proj-live .card .card-body .modal .modal-body .carousel,
+#proj-sale .card .card-body .modal .modal-body .carousel {
   height: 100%;
 }
-#proj-live .modal .modal-body .carousel .carousel-inner,
-#proj .modal .modal-body .carousel .carousel-inner {
+#proj-live .card .card-body .modal .modal-body .carousel .carousel-inner,
+#proj-sale .card .card-body .modal .modal-body .carousel .carousel-inner {
   height: 100%;
 }
-#proj-live .modal .modal-body .carousel .carousel-inner .carousel-item,
-#proj .modal .modal-body .carousel .carousel-inner .carousel-item {
+#proj-live .card .card-body .modal .modal-body .carousel .carousel-inner .carousel-item,
+#proj-sale .card .card-body .modal .modal-body .carousel .carousel-inner .carousel-item {
   height: 100%;
 }
-#proj-live .modal .modal-body .carousel .carousel-inner .carousel-item .box,
-#proj .modal .modal-body .carousel .carousel-inner .carousel-item .box {
+#proj-live .card .card-body .modal .modal-body .carousel .carousel-inner .carousel-item .box,
+#proj-sale .card .card-body .modal .modal-body .carousel .carousel-inner .carousel-item .box {
   height: 100%;
   text-align: center;
   line-height: 100%;
   display: flex;
   background-color: transparent;
 }
-#proj-live .modal .modal-body .carousel .carousel-inner .carousel-item .box img,
-#proj .modal .modal-body .carousel .carousel-inner .carousel-item .box img {
+#proj-live .card .card-body .modal .modal-body .carousel .carousel-inner .carousel-item .box img,
+#proj-sale .card .card-body .modal .modal-body .carousel .carousel-inner .carousel-item .box img {
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
   height: 100%;
 }
 @media only screen and (max-width: 600px) {
-  #proj-live .modal .modal-body .carousel .carousel-inner .carousel-item .box img,
-  #proj .modal .modal-body .carousel .carousel-inner .carousel-item .box img {
+  #proj-live .card .card-body .modal .modal-body .carousel .carousel-inner .carousel-item .box img,
+  #proj-sale .card .card-body .modal .modal-body .carousel .carousel-inner .carousel-item .box img {
     width: 100%;
     -o-object-fit: contain;
        object-fit: contain;

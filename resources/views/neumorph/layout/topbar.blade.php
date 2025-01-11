@@ -70,6 +70,11 @@
                             Benefits
                         </div>
                     </a>
+                    <a href="#proj-sale">
+                        <div id="nav-proj-sale" class="">
+                            For Sale
+                        </div>
+                    </a>
                     <a href="#pricing">
                         <div id="nav-pricing" class="">
                             <strike>Pricing</strike> <i class="fas fa-hard-hat"></i>

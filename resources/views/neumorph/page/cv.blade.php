@@ -25,7 +25,7 @@
                     </div>
                     <div class="icons">
                         <div>
-                            <a href="https://www.instagram.com/b19_design/" target="blank_">
+                            <a href="https://www.instagram.com/tebe19_/" target="blank_">
                                 <div class="card card-morph-pop">
                                     <div class="card-body">
                                         <i class="fab fa-instagram"></i>
@@ -54,6 +54,7 @@
                             </div>
                         </a>
                     </div>
+                    <div><b><i>(Some of Sections Are Under Maintenance)</i></b></div>
                 </div>
             </div>
         </div>
@@ -76,8 +77,8 @@
                                     </div>
                                 </div>
                                 <p>
-                                    The one who translate your business proccess from the first proccess to the end of the
-                                    proccess into a very cool system
+                                    The one who will translate your business proccess, from the first proccess to the end
+                                    into a very cool system
                                 </p>
                             </div>
                         </div>
@@ -127,16 +128,15 @@
                         <div class="col-lg-12" style="">
                             <div class="card-what">
                                 <div class="bag">
-                                    <h4>Father</h4>
+                                    <h4>Project Manager</h4>
                                     <div class="card card-morph-pop">
                                         <div class="card-body">
-                                            <i class="fas fa-baby-carriage"></i>
+                                            <i class="fas fa-tasks"></i>
                                         </div>
                                     </div>
                                 </div>
                                 <p>
-                                    I will have a baby really really soon, and I am very excited to meet my baby <i
-                                        class="fas fa-baby"></i>
+                                    Keeping the timeline always inline within the expectation, and makes everyone happy
                                 </p>
                             </div>
                         </div>
@@ -146,160 +146,156 @@
         </div>
     </section>
 
-    {{-- <section class="container" id="exp2">
-    <h1 class="section-title">Experiences</h1>
+    <section class="container" id="exp2">
+        <h1 class="section-title">Experiences</h1>
 
-    @foreach ($exp as $exp)
-    <div class="row list" style="margin-top: -10px">
-        <div class="col-1 list-line" style="">
-            <div class="line-shadow" style="">
-                <div class="bag" style="position: relative">
-                    <div class="v-line card-morph-pop" style=""></div>
-                    <div class="h-line card-morph-pop" style=""></div>
-                </div>
-            </div>
-            <div class="round-shadow card-morph-pop" style=""></div>
-            <div class="line-shadow" style="position: absolute; z-index: 1;">
-                <div class="bag" style="position: relative">
-                    <div class="v-line card-morph-pop" style="box-shadow: none ;background: #2B2F35;"></div>
-                    <div class="h-line card-morph-pop" style="box-shadow: none; width: 80px; background: #2B2F35;"></div>
-                </div>
-            </div>
-            <div class="round-shadow hover" style="">
-                <div class="card-morph-drop round cssanimation fadeOut infinite" style=""></div>
-            </div>
-        </div>
-        <div class="col-11 info" style="">
-            <div class="card card-morph-pop">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <h4 class="mb-2">{{$exp->nama_perusahaan}}</h4>
-                            <h5 class="mb-2">{{$exp->posisi}}</h5>
-                            <p class="mb-4">{{$exp->dari}} - {{$exp->sampai}}</p>
-                        </div>
-                        <div class="col-lg-8" style="line-height: 2;">
-                            <p>{!!$exp->deskripsi!!}</p>
+        @foreach ($exp as $exp)
+            <div class="row list" style="margin-top: -10px">
+                <div class="col-1 list-line" style="">
+                    <div class="line-shadow" style="">
+                        <div class="bag" style="position: relative">
+                            <div class="v-line card-morph-pop" style=""></div>
+                            <div class="h-line card-morph-pop" style=""></div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    @endforeach
-    
-</section> --}}
-
-    {{-- <section class="container" id="proj">
-    <h1 class="section-title">Live Projects</h1>
-    <div class="row">
-        @foreach ($proj->reverse() as $proj)
-        <div class="col-12 col-lg-4 mb-4">
-            <div class="card card-morph-pop">
-                <div class="card-body text-center">
-                    <div class="proj-image">
-                        <img src="{{asset('../assets/img/thumbnail/'.$proj->thumbnail)}}" alt="">
+                    <div class="round-shadow card-morph-pop" style=""></div>
+                    <div class="line-shadow" style="position: absolute; z-index: 1;">
+                        <div class="bag" style="position: relative">
+                            <div class="v-line card-morph-pop" style="box-shadow: none ;background: #172030;"></div>
+                            <div class="h-line card-morph-pop"
+                                style="box-shadow: none; width: 80px; background: #172030;"></div>
+                        </div>
                     </div>
-                    <h4>
-                        {{$proj->judul}}
-                    </h4>
-                    <h5>
-                        {!!$proj->deskripsi!!}
-                    </h5>
-
-                    <div class="row proj-button">
-                        <div class="col-6">
-                            <a href="{{$proj->link_asli}}" target="blank_">
-                                <div class="card card-morph-pop">
-                                    <div class="card-body">
-                                        Live Web
-                                    </div>
+                    <div class="round-shadow hover" style="">
+                        <div class="card-morph-drop round cssanimation fadeOut infinite" style=""></div>
+                    </div>
+                </div>
+                <div class="col-11 info" style="">
+                    <div class="card card-morph-pop">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <h4 class="mb-2">{{ $exp['fields']['companyName'] }}</h4>
+                                    <h5 class="mb-2">{{ $exp['fields']['position'] }}</h5>
+                                    <p class="mb-4">{{ $exp['fields']['dateStart'] }} - {{ $exp['fields']['dateEnd'] }}
+                                    </p>
                                 </div>
-                            </a>
-                        </div>
-                        <div class="col-6">
-                            <a href="{{$proj->link_local}}" target="blank_">
-                                <div class="card card-morph-pop">
-                                    <div class="card-body">
-                                        Local Preview
-                                    </div>
+                                <div class="col-lg-8" style="line-height: 2;">
+                                    <p>{!! $exp['fields']['description'] !!}</p>
                                 </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endforeach
-    </div>
-</section> --}}
-
-    {{-- <section class="container proj-forsale" id="proj">
-    <h1 class="section-title">Free Time Projects</h1>
-
-    <div uk-filter="target: .js-filter">
-
-        <div class="uk-subnav uk-subnav-pill">
-            <div class="row justify-content-around">
-                <div class="col-lg-2 col-6">
-                    <button class="uk-active card-morph-pop" uk-filter-control=".all">All Web</button>
-                </div>
-                @foreach ($kate->unique('kategori') as $item)
-                <div class="col-lg-2 col-6">
-                    <button class="card-morph-pop" uk-filter-control=".{{$item->kategori}}">{{$item->kategori}}</button>
-                </div>
-                @endforeach
-            </div>
-        </div>
-
-        <div class="row js-filter uk-child-width-1-2 uk-child-width-1-3@m uk-text-center">
-            @foreach ($sale as $proj)
-            <div class="col-6 col-lg-4 mb-4 {{$proj->kategori}} all">
-                <div class="card card-morph-pop">
-                    <div class="card-body text-center">
-                        <div class="proj-image">
-                            <img src="{{asset('../assets/img/forsale/'.$proj->thumbnail)}}" alt="" style="width: 100%">
-                        </div>
-                        <h4 class="mb-3">
-                            {{$proj->judul}}
-                        </h4>
-    
-                        <div class="row justify-content-center proj-button">
-                            <div class="col-lg-6 col-12">
-                                <a href="{{$proj->link_asli}}" target="blank_">
-                                    <div class="card card-morph-pop">
-                                        <div class="card-body">
-                                            Live Preview
-                                        </div>
-                                    </div>
-                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            @endforeach
-        </div>
+        @endforeach
+    </section>
 
-    </div>
-</section> --}}
+    <section class="container" id="proj-live">
+        <h1 class="section-title">Projects</h1>
+        <div uk-filter="target: .js-filter">
+
+            <div class="uk-subnav uk-subnav-pill">
+                <div class="row justify-content-center">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                        <button class="uk-active card-morph-pop" uk-filter-control=".all">Semua Project</button>
+                    </div>
+                    @foreach ($categoriesexpProject as $item)
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                            <button class="card-morph-pop"
+                                uk-filter-control=".{{ $item['fields']['slug'] }}">{{ $item['fields']['name'] }}
+                            </button>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="row js-filter uk-child-width-1-2 uk-child-width-1-3@m uk-text-center">
+                @foreach ($filteredexpProject as $item)
+                    <div
+                        class="col-lg-4 col-md-6 col-12 mb-4 @foreach ($item['fields']['category_slug'] as $categories) {{ $categories }} @endforeach all">
+                        <div class="card card-morph-pop">
+                            <div class="card-body text-center">
+                                <div class="proj-image" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#{{ $item['id'] }}">
+                                    <img src="{{ $item['fields']['screenshots'][0]['url'] }}" alt="">
+                                </div>
+                                <h4>
+                                    {{ $item['fields']['name'] }}
+                                </h4>
+                                <h5>
+                                    @foreach ($item['fields']['category_name'] as $cate)
+                                        {{ $cate }} {{ $loop->last ? '' : ', ' }}
+                                    @endforeach
+                                </h5>
+                                <div class="modal fade" id="{{ $item['id'] }}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-fullscreen">
+                                        <div class="modal-content">
+                                            {{-- <div class="modal-header">
+                                                <h5 class="modal-title">Modal title</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div> --}}
+                                            <div class="modal-body">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                                <div id="carousel{{ $item['id'] }}" class="carousel slide"
+                                                    data-bs-ride="carousel">
+                                                    <div class="carousel-inner">
+                                                        @foreach ($item['fields']['screenshots'] as $img)
+                                                            <div
+                                                                class="carousel-item {{ $loop->first ? 'active' : ' ' }}">
+                                                                <div class="box">
+                                                                    <img src="{{ $img['url'] }}"
+                                                                        class="mx-auto my-auto d-block" style="">
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+                                                    <button class="carousel-control-prev" type="button"
+                                                        data-bs-target="#carousel{{ $item['id'] }}"
+                                                        data-bs-slide="prev">
+                                                        <span class="carousel-control-prev-icon"
+                                                            aria-hidden="true"></span>
+                                                        <span class="visually-hidden">Previous</span>
+                                                    </button>
+                                                    <button class="carousel-control-next" type="button"
+                                                        data-bs-target="#carousel{{ $item['id'] }}"
+                                                        data-bs-slide="next">
+                                                        <span class="carousel-control-next-icon"
+                                                            aria-hidden="true"></span>
+                                                        <span class="visually-hidden">Next</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 
     {{-- <section class="container" id="skill">
-    <h1 class="section-title">Skills</h1>
-    <div class="row">
-        @foreach ($skill as $item)
-        <div class="col-lg-6">
-            <div>
-                <h4>{{$item->skill}} - {{$item->tingkatan}}</h4>
-                <h5>{{$item->persen}}%</h5>
-            </div>
-            <div class="progress card-morph-drop">
-                <div class="progress-value" style="width: {{$item->persen}}%"></div>
-            </div>
+        <h1 class="section-title">Skills</h1>
+        <div class="row">
+            @foreach ($skill as $item)
+                <div class="col-lg-6">
+                    <div>
+                        <h4>{{ $item->skill }} - {{ $item->tingkatan }}</h4>
+                        <h5>{{ $item->persen }}%</h5>
+                    </div>
+                    <div class="progress card-morph-drop">
+                        <div class="progress-value" style="width: {{ $item->persen }}%"></div>
+                    </div>
+                </div>
+            @endforeach
         </div>
-        @endforeach
-    </div>
-</section> --}}
+    </section> --}}
 
     <section class="container full-page" id="edu">
         <div class="wrapper">
@@ -404,25 +400,26 @@
     </script>
 
     <script>
+        let screen_pos = $(window).scrollTop() + Math.floor($(window).height() / 2);
+        console.log(screen_pos);
         $(document).ready(function() {
             var intro = $("#intro").offset().top;
             var who = $("#who").offset().top;
             var exp2 = $("#exp2").offset().top;
-            var proj = $("#proj").offset().top;
-            var skill = $("#skill").offset().top;
+            var proj_live = $("#proj-live").offset().top;
             var edu = $("#edu").offset().top;
-            var form = $("#form").offset().top;
-            console.log(proj);
+
+
             $(window).scroll(function() {
+                //console.log(window);
                 var screen_pos = $(window).scrollTop() + Math.floor($(window).height() / 2);
                 $('#nav-intro').toggleClass("button-morph-drop", (screen_pos >= intro && screen_pos < who));
                 $('#nav-who').toggleClass("button-morph-drop", (screen_pos >= who && screen_pos < exp2));
-                $('#nav-exp2').toggleClass("button-morph-drop", (screen_pos >= exp2 && screen_pos < proj));
-                $('#nav-projj').toggleClass("button-morph-drop", (screen_pos >= proj && screen_pos <
-                    skill));
-                $('#nav-skill').toggleClass("button-morph-drop", (screen_pos >= skill && screen_pos < edu));
-                $('#nav-edu').toggleClass("button-morph-drop", (screen_pos >= edu && screen_pos < form));
-                $('#nav-form').toggleClass("button-morph-drop", (screen_pos >= form));
+                $('#nav-exp2').toggleClass("button-morph-drop", (screen_pos >= exp2 && screen_pos <
+                    proj_live));
+                $('#nav-proj-live').toggleClass("button-morph-drop", (screen_pos >= proj_live &&
+                    screen_pos < edu));
+                $('#nav-edu').toggleClass("button-morph-drop", (screen_pos >= edu));
             });
         });
     </script>

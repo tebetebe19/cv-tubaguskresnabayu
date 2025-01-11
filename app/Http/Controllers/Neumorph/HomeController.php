@@ -13,15 +13,27 @@ class HomeController extends Controller
         $baseId = env('AIRTABLE_BASE_ID');
         $tableCategories = env('AIRTABLE_TABLE_CATEGORIES');
         $tableExpProject = env('AIRTABLE_TABLE_EXP_PROJECT');
+        $tableSaleProject = env('AIRTABLE_TABLE_SALE_PROJECT');
         $tableBenefit = env('AIRTABLE_TABLE_BENEFIT');
+        $tableTools = env('AIRTABLE_TABLE_TOOLS');
+
+        // Fetch Tools
+        $responseTools = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
+            ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableTools);
+        $tools = json_decode($responseTools, true)['records'];
+        // return response($tools);
 
         // Fetch Categories
         $responseCategories = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
             ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableCategories);
         $categories = json_decode($responseCategories, true)['records'];
-        // Filter For Sale Categories
+        // Filter Experience Categories
         $categoriesexpProject = collect($categories)->filter(function ($category) {
             return $category['fields']['is_available_experience'] == 1;
+        })->values()->all();
+        // Filter For Sale Categories
+        $categoriessaleProject = collect($categories)->filter(function ($category) {
+            return $category['fields']['is_available_forsale'] == 1;
         })->values()->all();
 
         // Fetch Experience Project
@@ -33,11 +45,19 @@ class HomeController extends Controller
             return $expProject['fields']['is_active'] == 1;
         })->values()->all();
 
+        // Fetch Benefit
         $responseBenefit = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
             ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableBenefit);
         $benefit = json_decode($responseBenefit, true)['records'];
 
-        return view('neumorph.page.home-new', compact('categoriesexpProject','filteredexpProject','benefit'));
+        // Fetch For Sale Project
+        $responseSaleProject = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
+            ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableSaleProject);
+        $saleProjects = json_decode($responseSaleProject, true)['records'];
+
+        // return response($saleProjects);
+
+        return view('neumorph.page.home', compact('categoriesexpProject','categoriessaleProject','filteredexpProject','benefit','saleProjects','tools'));
     }
 
     public function cv()
@@ -72,6 +92,6 @@ class HomeController extends Controller
         })->values()->all();
         // return response($filteredexpProject);
 
-        return view('neumorph.page.cv-new', compact('exp','categoriesexpProject','filteredexpProject' ));
+        return view('neumorph.page.cv', compact('exp','categoriesexpProject','filteredexpProject' ));
     }
 }

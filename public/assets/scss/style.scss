@@ -270,20 +270,20 @@ p {
     padding-bottom: 50px;
     height: 100vh;
     > .card {
-        background-color: $background-color_6;
+        background-color: $background-color_4;
         border: none;
         height: 500px;
-    }
-    .card-body {
-        height: 300px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        position: relative;
-    }
-    .carousel {
-        margin-top: 15px;
+        .card-body {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            .carousel {
+                margin-top: 15px;
+            }
+        }
     }
 }
 #who {
@@ -451,58 +451,77 @@ p {
     }
 }
 #proj-live,
-#proj {
+#proj-sale {
     padding-top: 50px;
     padding-bottom: 50px;
-    .proj-image {
-        margin-bottom: 20px;
-        img {
-            width: 100%;
-            // height: 200px;
-            object-fit: cover;
-            object-position: 50% 0px;
-            border-radius: 10px;
-            aspect-ratio: 18/9;
-        }
-    }
-    .modal {
-        .modal-content {
-            background-color: transparent;
-        }
-        .modal-body {
-            position: relative;
-            > button {
-                position: absolute;
-                top: 20px;
-                right: 20px;
-                opacity: 100%;
-                z-index: 100;
-                background-color: white;
-                color: black;
+    .card {
+        display: flex;
+        flex-direction: column;
+        .card-body {
+            .proj-image {
+                margin-bottom: 20px;
+                img {
+                    width: 100%;
+                    // height: 200px;
+                    object-fit: cover;
+                    object-position: 50% 0px;
+                    border-radius: 10px;
+                    aspect-ratio: 18/9;
+                }
             }
-            .carousel {
-                height: 100%;
-                .carousel-inner {
-                    height: 100%;
-                    .carousel-item {
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0px;
+                .button-morph-pop {
+                    text-align: center;
+                    width: 80%;
+                    margin-top: 10px;
+                    padding-bottom: 5px;
+                    font-size: 12px;
+                }
+            }
+            .modal {
+                .modal-content {
+                    background-color: transparent;
+                }
+                .modal-body {
+                    position: relative;
+                    > button {
+                        position: absolute;
+                        top: 20px;
+                        right: 20px;
+                        opacity: 100%;
+                        z-index: 100;
+                        background-color: white;
+                        color: black;
+                    }
+                    .carousel {
                         height: 100%;
-                        .box {
-                            // background-color: red;
+                        .carousel-inner {
                             height: 100%;
-                            text-align: center;
-                            line-height: 100%;
-                            display: flex;
-                            background-color: transparent;
-                            img {
-                                display: inline-block;
-                                vertical-align: middle;
-                                line-height: normal;
+                            .carousel-item {
                                 height: 100%;
-                            }
-                            @media only screen and (max-width: 600px) {
-                                img {
-                                    width: 100%;
-                                    object-fit: contain;
+                                .box {
+                                    // background-color: red;
+                                    height: 100%;
+                                    text-align: center;
+                                    line-height: 100%;
+                                    display: flex;
+                                    background-color: transparent;
+                                    img {
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                        line-height: normal;
+                                        height: 100%;
+                                    }
+                                    @media only screen and (max-width: 600px) {
+                                        img {
+                                            width: 100%;
+                                            object-fit: contain;
+                                        }
+                                    }
                                 }
                             }
                         }
