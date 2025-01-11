@@ -39,7 +39,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
 
     <!-- Style -->
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}?v={{ env('CSS_VERSION') }}">
 
     <title>Tubagus Kresna Bayu</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/logo/tab-icon.png') }}">
