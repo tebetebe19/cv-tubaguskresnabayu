@@ -300,7 +300,7 @@
                                         {{ $cate }} {{ $loop->last ? '' : ', ' }}
                                     @endforeach
                                 </h5>
-                                <a href="prototype/{{ $item['fields']['slug'] }}" target="blank">
+                                <a href="for-sale/{{ $item['fields']['slug'] }}" target="blank">
                                     <div class="button-morph-pop">
                                         Preview
                                     </div>
