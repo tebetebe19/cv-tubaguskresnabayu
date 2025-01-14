@@ -94,4 +94,22 @@ class HomeController extends Controller
 
         return view('neumorph.page.cv', compact('exp','categoriesexpProject','filteredexpProject' ));
     }
+
+    public function prototype($slug)
+    {
+        $apiKey = env('AIRTABLE_KEY');
+        $baseId = env('AIRTABLE_BASE_ID');
+        $tableSaleProject = env('AIRTABLE_TABLE_SALE_PROJECT');
+
+        $filterFormula = 'AND(SEARCH("'.$slug.'", {slug}) = TRUE())';
+        $responseSaleProject = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
+            ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableSaleProject, [
+                'filterByFormula' => $filterFormula,
+            ]);
+        $project = json_decode($responseSaleProject, true)['records'];
+
+        // return response($project);
+
+        return view('neumorph.page.proj-live', compact('project'));
+    }
 }

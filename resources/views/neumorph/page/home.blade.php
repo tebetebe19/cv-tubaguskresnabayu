@@ -289,8 +289,7 @@
                         class="col-lg-4 col-md-6 col-12 mb-4 @foreach ($item['fields']['category_slug'] as $categories) {{ $categories }} @endforeach all">
                         <div class="card card-morph-pop">
                             <div class="card-body text-center">
-                                <div class="proj-image" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#{{ $item['id'] }}">
+                                <div class="proj-image">
                                     <img src="{{ $item['fields']['thumbnail'][0]['url'] }}" alt="">
                                 </div>
                                 <h4>
@@ -301,7 +300,7 @@
                                         {{ $cate }} {{ $loop->last ? '' : ', ' }}
                                     @endforeach
                                 </h5>
-                                <a href="{{ $item['fields']['link_preview'] }}" target="blank_">
+                                <a href="prototype/{{ $item['fields']['slug'] }}" target="blank">
                                     <div class="button-morph-pop">
                                         Preview
                                     </div>

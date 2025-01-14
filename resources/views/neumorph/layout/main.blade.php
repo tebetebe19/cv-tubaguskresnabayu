@@ -41,7 +41,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}?v={{ env('CSS_VERSION') }}">
 
-    <title>Tubagus Kresna Bayu</title>
+    <title>Big Digital Development</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/logo/tab-icon.png') }}">
 </head>
 
