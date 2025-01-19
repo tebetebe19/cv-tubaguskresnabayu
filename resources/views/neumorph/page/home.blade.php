@@ -18,7 +18,7 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="icons">
+                    {{-- <div class="icons">
                         <div>
                             <a href="https://www.instagram.com/tebe19_/" target="blank_">
                                 <div class="card card-morph-pop">
@@ -48,8 +48,8 @@
                                 </div>
                             </div>
                         </a>
-                    </div>
-                    <div><b><i>(Some of Sections Are Under Maintenance)</i></b></div>
+                    </div> --}}
+                    <div style="margin-top: 20px"><b><i>(Some of Sections Are Under Maintenance)</i></b></div>
                 </div>
             </div>
         </div>
@@ -538,7 +538,7 @@
         </div>
     </section> --}}
 
-    <section class="container full-page" id="form">
+    {{-- <section class="container full-page" id="form">
         <div class="wrapper">
             <h1 class="section-title">Getting Closer to Us</h1>
             <form action="" method="POST" enctype="multipart/form-data">
@@ -607,7 +607,7 @@
 
         @include('neumorph.page.modal')
 
-    </section>
+    </section> --}}
 @endsection
 
 @section('js')
@@ -618,7 +618,7 @@
             var proj = $("#proj-live").offset().top;
             var benefit = $("#benefit").offset().top;
             var proj_sale = $("#proj-sale").offset().top;
-            var form = $("#form").offset().top;
+            // var form = $("#form").offset().top;
             console.log();
             $(window).scroll(function() {
                 var screen_pos = $(window).scrollTop() + Math.floor($(window).height() / 2);
@@ -628,9 +628,8 @@
                     benefit));
                 $('#nav-benefit').toggleClass("button-morph-drop", (screen_pos >= benefit && screen_pos <
                     proj_sale));
-                $('#nav-proj-sale').toggleClass("button-morph-drop", (screen_pos >= proj_sale &&
-                    screen_pos < form));
-                $('#nav-form').toggleClass("button-morph-drop", (screen_pos >= form));
+                $('#nav-proj-sale').toggleClass("button-morph-drop", (screen_pos >= proj_sale));
+                //$('#nav-form').toggleClass("button-morph-drop", (screen_pos >= form));
             });
         });
     </script>

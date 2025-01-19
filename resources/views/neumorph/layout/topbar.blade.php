@@ -80,11 +80,11 @@
                             <strike>Pricing</strike> <i class="fas fa-hard-hat"></i>
                         </div>
                     </a>
-                    <a href="#form">
+                    {{-- <a href="#form">
                         <div id="nav-form" class="">
                             Form
                         </div>
-                    </a>
+                    </a> --}}
                 @endif
             </div>
         </div>
