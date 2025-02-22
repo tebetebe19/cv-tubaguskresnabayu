@@ -1,9 +1,12 @@
 @extends('neumorph.layout.main')
 
-@section('content')
-    {{-- <section class="container" id="testing" style="height: 100vh; position: relative; background-color:white">
+@section('css')
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}?v={{ env('CSS_VERSION') }}">
+@endsection
 
-    </section> --}}
+@section('content')
+    @include('neumorph.layout.topbar')
+
     <section class="container full-page" id="intro">
         <div class="card">
             <div class="card-body">
@@ -71,10 +74,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p>
+                                <h5>
                                     The one who translate your business proccess from the first proccess to the end of the
                                     proccess into a very cool system
-                                </p>
+                                </h5>
                             </div>
                         </div>
                         <div class="col-lg-12" style="">
@@ -87,10 +90,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p>
+                                <h5>
                                     Describer all of your website fantasies to become somethings that you can see with your
                                     eyes
-                                </p>
+                                </h5>
                             </div>
                         </div>
                     </div>
@@ -115,10 +118,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p>
+                                <h5>
                                     Your technical design translator from Figma, Photoshop, or any web design tools into a
-                                    real website
-                                </p>
+                                    real website and application
+                                </h5>
                             </div>
                         </div>
                         <div class="col-lg-12" style="">
@@ -131,9 +134,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p>
+                                <h5>
                                     Keeping the timeline always inline within the expectation, and makes everyone happy
-                                </p>
+                                </h5>
                             </div>
                         </div>
                     </div>
@@ -538,7 +541,7 @@
         </div>
     </section> --}}
 
-    {{-- <section class="container full-page" id="form">
+    <section class="container full-page" id="form">
         <div class="wrapper">
             <h1 class="section-title">Getting Closer to Us</h1>
             <form action="" method="POST" enctype="multipart/form-data">
@@ -607,7 +610,7 @@
 
         @include('neumorph.page.modal')
 
-    </section> --}}
+    </section>
 @endsection
 
 @section('js')

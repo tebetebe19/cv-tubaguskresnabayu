@@ -112,4 +112,60 @@ class HomeController extends Controller
 
         return view('neumorph.page.proj-live', compact('project'));
     }
+
+    public function new()
+    {
+        $apiKey = env('AIRTABLE_KEY');
+        $baseId = env('AIRTABLE_BASE_ID');
+        $tableCategories = env('AIRTABLE_TABLE_CATEGORIES');
+        $tableExpProject = env('AIRTABLE_TABLE_EXP_PROJECT');
+        $tableSaleProject = env('AIRTABLE_TABLE_SALE_PROJECT');
+        $tableBenefit = env('AIRTABLE_TABLE_BENEFIT');
+        $tableClient = env('AIRTABLE_TABLE_CLIENT');
+        
+        // Fetch Client
+        $responseClient = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
+        ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableClient);
+        $client = json_decode($responseClient, true)['records'];
+        
+        // Fetch Categories
+        $responseCategories = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
+            ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableCategories);
+        $categories = json_decode($responseCategories, true)['records'];
+        // Filter Experience Categories
+        $categoriesexpProject = collect($categories)->filter(function ($category) {
+            return $category['fields']['is_available_experience'] == 1;
+        })->values()->all();
+        // Filter For Sale Categories
+        $categoriessaleProject = collect($categories)->filter(function ($category) {
+            return $category['fields']['is_available_forsale'] == 1;
+        })->values()->all();
+
+        // Fetch Experience Project
+        $responseExpProject = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
+            ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableExpProject.'?sort[0][field]=sort');
+        $expProjects = json_decode($responseExpProject, true)['records'];
+        // Filter Experience Project
+        $filteredexpProject = collect($expProjects)->filter(function ($expProject) {
+            return $expProject['fields']['is_active'] == 1;
+        })->values()->all();
+        // return response($filteredexpProject);
+
+        // Fetch Benefit
+        $responseBenefit = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
+            ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableBenefit);
+        $benefit = json_decode($responseBenefit, true)['records'];
+
+        // Fetch For Sale Project
+        $responseSaleProject = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
+            ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableSaleProject);
+        $saleProjects = json_decode($responseSaleProject, true)['records'];
+
+
+        return view('neumorph.page.home-new', compact('client','categoriesexpProject','categoriessaleProject','filteredexpProject','benefit','saleProjects'));
+    }
+
+    // public function new(){
+    //     return view('neumorph.page.home-new');
+    // }
 }

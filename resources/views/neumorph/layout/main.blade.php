@@ -1,10 +1,28 @@
+<?php
+$metaDescriptions = [
+    'id' => 'Partner Vendor Terbaik dan Murah Pembuatan Website dan Aplikasi Mobile Anda',
+    'en' => 'Your Best and Cheap Website and Mobile Development Partner Vendor',
+];
+
+// Get the user's preferred language from the browser
+$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+
+$description = $lang === 'id' ? $metaDescriptions['id'] : $metaDescriptions['en'];
+?>
+
 <!doctype html>
-<html lang="en">
+<html lang="@php echo ($lang) @endphp">
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Big Digital Development</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/logo/tab-icon.png') }}">
+    <meta name="description" content="@php echo $description; @endphp">
+    <meta name="keywords" content="web development, mobile development, website, mobile app, web app">
+    <link rel="canonical" href="https://bigdigidev.my.id/" />
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -27,6 +45,10 @@
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.3/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.3/dist/js/uikit-icons.min.js"></script>
 
+    {{-- Splide JS --}}
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,15 +61,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
 
     <!-- Style -->
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}?v={{ env('CSS_VERSION') }}">
-
-    <title>Big Digital Development</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/logo/tab-icon.png') }}">
+    @yield('css')
 </head>
 
 <body>
-
-    @include('neumorph.layout.topbar')
 
     @yield('content')
 
@@ -70,10 +87,10 @@
     <script>
         $(document).ready(function() {
 
-            $('#nav-burger').click(function() {
-                $(this).toggleClass('open');
-                $(".navbar-bag").togle("slow");
-            });
+            //$('#nav-burger').click(function() {
+            //  $(this).toggleClass('open');
+            //$(".navbar-bag").togle("slow");
+            //});
 
             $(".slide-toggle").click(function() {
                 $(".text-mamen").animate({
@@ -695,30 +712,6 @@
     {{-- Ecom end --}}
 
     <script>
-        $(document).on('click', '#not_ready', function(e) {
-            swal({
-                    title: "Almost There!",
-                    text: "But, our automatic payment system is still off for now :( Do you want to contact me personaly?",
-                    type: "info",
-                    confirmButtonText: "Yes!",
-                    showCancelButton: true
-                })
-                .then((result) => {
-                    if (result.value) {
-                        window.location = 'https://mailto:tubagusflow@gmail.com';
-                    } else if (result.dismiss === 'cancel') {
-                        swal(
-                            'Well, maybe next time',
-                            'Enjoy your day :D',
-                            //   'error'
-                        )
-                    }
-                })
-
-        });
-    </script>
-
-    <script>
         $(document).ready(function() {
 
             // $('.grid').isotope({
@@ -726,14 +719,14 @@
             // });
 
             // filter items on button click
-            $('.filter-button-group').on('click', 'li', function() {
-                var filterValue = $(this).attr('data-filter');
-                $('.grid').isotope({
-                    filter: filterValue
-                });
-                $('.filter-button-group li').removeClass('active');
-                $(this).addClass('active');
-            });
+            // $('.filter-button-group').on('click', 'li', function() {
+            //     var filterValue = $(this).attr('data-filter');
+            //     $('.grid').isotope({
+            //         filter: filterValue
+            //     });
+            //     $('.filter-button-group li').removeClass('active');
+            //     $(this).addClass('active');
+            // });
         })
     </script>
 

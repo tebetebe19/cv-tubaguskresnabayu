@@ -19,4 +19,5 @@ Route::group(['prefix' => '/'], function () {
     Route::get('/cv', [HomeController::class, 'cv']);
     Route::get('/for-sale/{slug}', [HomeController::class, 'prototype']);
 
+    Route::get('/new', [HomeController::class, 'new']);
 });

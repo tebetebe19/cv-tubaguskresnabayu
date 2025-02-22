@@ -316,6 +316,11 @@ p {
   border-radius: 300px;
   margin: auto;
 }
+#who h5 {
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
 
 #benefit {
   padding-top: 50px;
