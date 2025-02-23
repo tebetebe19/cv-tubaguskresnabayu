@@ -1,5 +1,9 @@
 @extends('neumorph.layout.main')
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}?v={{ env('CSS_VERSION') }}">
+@endsection
+
 @section('content')
     <section class="container full-page" id="intro">
         <div class="card">
