@@ -464,6 +464,14 @@ nav {
             }
         }
     }
+    .card-team {
+        .image {
+            aspect-ratio: 1/1;
+            img {
+                aspect-ratio: 1/1;
+            }
+        }
+    }
 }
 
 #benefit {

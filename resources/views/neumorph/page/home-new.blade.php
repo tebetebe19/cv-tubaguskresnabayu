@@ -279,144 +279,49 @@
         <h2 class="section-title">Our Team</h2>
         <p class="section-sub-title">Closer With Us</p>
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-4">
-                <div class="card neumorph-pop">
-                    <div class="card-body">
-                        <div class="image">
-                            <img src="https://loremflickr.com/200/200?random=1" alt="">
-                            <div class="overlay">Senior Project Manager</div>
-                        </div>
-                        <h3>Tubagus Kresna Bayu</h3>
-                        <div class="contact">
-                            <a class="button neumorph-pop" href="https://wa.me/081311521443" target="blank">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a class="button neumorph-pop" href="mailto:tubagusflow@gmail.com" target="blank">
-                                <i class="far fa-envelope"></i>
-                            </a>
-                            <a class="button neumorph-pop" href="https://www.instagram.com/tebe19_/" target="blank">
-                                <i class="fab fa-instagram"></i>
-                            </a>
+            @foreach ($team as $item)
+                <div class="col-lg-4 col-md-6 col-12 mb-4 mb-4">
+                    <div class="card neumorph-pop">
+                        <div class="card-body card-team">
+                            <div class="image">
+                                <img src="{{ $item['fields']['photo'][0]['thumbnails']['large']['url'] }}"
+                                    alt="">
+                                <div class="overlay">{{ $item['fields']['role'] }}</div>
+                            </div>
+                            <h3>Tubagus Kresna Bayu</h3>
+                            <div class="contact">
+                                @if (isset($item['fields']['ct_ig']))
+                                    <a class="button neumorph-pop" href="{{ $item['fields']['ct_ig'] }}"
+                                        target="_blank">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                @endif
 
+                                @if (isset($item['fields']['ct_email']))
+                                    <a class="button neumorph-pop" href="mailto:{{ $item['fields']['ct_email'] }}"
+                                        target="_blank">
+                                        <i class="far fa-envelope"></i>
+                                    </a>
+                                @endif
+
+                                @if (isset($item['fields']['ct_linkedin']))
+                                    <a class="button neumorph-pop" href="{{ $item['fields']['ct_linkedin'] }}"
+                                        target="_blank">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </a>
+                                @endif
+
+                                @if (isset($item['fields']['ct_web']))
+                                    <a class="button neumorph-pop" href="{{ $item['fields']['ct_web'] }}"
+                                        target="_blank">
+                                        <i class="fa-solid fa-globe"></i>
+                                    </a>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-4">
-                <div class="card neumorph-pop">
-                    <div class="card-body">
-                        <div class="image">
-                            <img src="https://loremflickr.com/200/200?random=2" alt="">
-                            <div class="overlay">Senior Front End Developer</div>
-                        </div>
-                        <h3>Fahmi The Aeroxer</h3>
-                        <div class="contact">
-                            <a class="button neumorph-pop" href="https://wa.me/081311521443" target="blank">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a class="button neumorph-pop" href="mailto:tubagusflow@gmail.com" target="blank">
-                                <i class="far fa-envelope"></i>
-                            </a>
-                            <a class="button neumorph-pop" href="https://www.instagram.com/tebe19_/" target="blank">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-4">
-                <div class="card neumorph-pop">
-                    <div class="card-body">
-                        <div class="image">
-                            <img src="https://loremflickr.com/200/200?random=3" alt="">
-                            <div class="overlay">Senior Back End Developer</div>
-                        </div>
-                        <h3>Syalva Looking For Apartment</h3>
-                        <div class="contact">
-                            <a class="button neumorph-pop" href="https://wa.me/081311521443" target="blank">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a class="button neumorph-pop" href="mailto:tubagusflow@gmail.com" target="blank">
-                                <i class="far fa-envelope"></i>
-                            </a>
-                            <a class="button neumorph-pop" href="https://www.instagram.com/tebe19_/" target="blank">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-4">
-                <div class="card neumorph-pop">
-                    <div class="card-body">
-                        <div class="image">
-                            <img src="https://loremflickr.com/200/200?random=4" alt="">
-                            <div class="overlay">Senior UI/UX Designer</div>
-                        </div>
-                        <h3>Wahuy Touring Leader</h3>
-                        <div class="contact">
-                            <a class="button neumorph-pop" href="https://wa.me/081311521443" target="blank">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a class="button neumorph-pop" href="mailto:tubagusflow@gmail.com" target="blank">
-                                <i class="far fa-envelope"></i>
-                            </a>
-                            <a class="button neumorph-pop" href="https://www.instagram.com/tebe19_/" target="blank">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-4">
-                <div class="card neumorph-pop">
-                    <div class="card-body">
-                        <div class="image">
-                            <img src="https://loremflickr.com/200/200?random=5" alt="">
-                            <div class="overlay">QA Tester (MT/AT)</div>
-                        </div>
-                        <h3>Nico Nico Niconi</h3>
-                        <div class="contact">
-                            <a class="button neumorph-pop" href="https://wa.me/081311521443" target="blank">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a class="button neumorph-pop" href="mailto:tubagusflow@gmail.com" target="blank">
-                                <i class="far fa-envelope"></i>
-                            </a>
-                            <a class="button neumorph-pop" href="https://www.instagram.com/tebe19_/" target="blank">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-4">
-                <div class="card neumorph-pop">
-                    <div class="card-body">
-                        <div class="image">
-                            <img src="https://loremflickr.com/200/200?random=6" alt="">
-                            <div class="overlay">Senior Mobile Developer</div>
-                        </div>
-                        <h3>Agus Tapi Ntar</h3>
-                        <div class="contact">
-                            <a class="button neumorph-pop" href="https://wa.me/081311521443" target="blank">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a class="button neumorph-pop" href="mailto:tubagusflow@gmail.com" target="blank">
-                                <i class="far fa-envelope"></i>
-                            </a>
-                            <a class="button neumorph-pop" href="https://www.instagram.com/tebe19_/" target="blank">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
     <section id="closing" class="container">

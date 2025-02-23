@@ -464,6 +464,16 @@ nav {
 #sale .card-cta .contact a {
   margin-top: 15px;
 }
+#team .card-team .image,
+#portfolio .card-team .image,
+#sale .card-team .image {
+  aspect-ratio: 1/1;
+}
+#team .card-team .image img,
+#portfolio .card-team .image img,
+#sale .card-team .image img {
+  aspect-ratio: 1/1;
+}
 
 #benefit {
   text-align: center;
