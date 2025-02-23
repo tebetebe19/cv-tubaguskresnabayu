@@ -46,9 +46,6 @@
         <div class="splide" role="group" aria-label="Splide Basic HTML Example">
             <div class="splide__track">
                 <ul class="splide__list">
-                    <li class="splide__slide">
-                        <img src="{{ asset('assets/img/client/pediasure.png') }}" alt="PediaSure">
-                    </li>
                     @foreach ($client as $item)
                         <li class="splide__slide">
                             <img src="{{ $item['fields']['image'][0]['thumbnails']['large']['url'] }}" alt="PediaSure">
@@ -315,6 +312,13 @@
                                     <a class="button neumorph-pop" href="{{ $item['fields']['ct_web'] }}"
                                         target="_blank">
                                         <i class="fa-solid fa-globe"></i>
+                                    </a>
+                                @endif
+
+                                @if (isset($item['fields']['ct_github']))
+                                    <a class="button neumorph-pop" href="{{ $item['fields']['ct_github'] }}"
+                                        target="_blank">
+                                        <i class="fa-brands fa-github"></i>
                                     </a>
                                 @endif
                             </div>

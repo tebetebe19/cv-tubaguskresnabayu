@@ -216,7 +216,6 @@ nav {
   height: 25px;
   -o-object-fit: cover;
      object-fit: cover;
-  filter: brightness(0) invert(1);
 }
 
 #who {
