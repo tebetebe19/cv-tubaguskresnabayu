@@ -6,6 +6,20 @@
   --shadow-light: #3f4349;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 2px 2px 2px #25282d, inset -2px -2px 2px #4d525a;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  background-color: white;
+}
+
 body {
   background: var(--primary-new);
   color: white;
@@ -152,6 +166,9 @@ nav {
   }
   nav .nav-item .nav-logo {
     height: 50px;
+  }
+  nav .nav-item .nav-logo img {
+    height: 100%;
   }
   nav .nav-item .nav-icon {
     font-size: 25px;

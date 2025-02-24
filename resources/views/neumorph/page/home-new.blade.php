@@ -7,7 +7,12 @@
 @section('content')
     <nav>
         <div class="container nav-item">
-            <img class="nav-logo phone-only" src="{{ asset('assets/img/logo/tab-icon.png') }}" alt="">
+            <div class="nav-logo phone-only">
+                <a href="#intro">
+                    <img src="{{ asset('assets/img/logo/tab-icon.png') }}" alt="">
+                </a>
+            </div>
+            {{-- <img class="nav-logo phone-only" href="#intro" src="" alt=""> --}}
             <div class="nav-icon phone-only neumorph-pop">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -21,7 +26,7 @@
                             <img src="{{ asset('assets/img/logo/tab-icon.png') }}" alt="">
                         </a>
                     </li>
-                    <li id="nav-sale" class="neumorph-drop"><a href="#sale">For Sale</a></li>
+                    <li id="nav-sale"><a href="#sale">For Sale</a></li>
                     <li id="nav-team"><a href="#team">Team</a></li>
                 </ul>
             </div>
@@ -187,7 +192,9 @@
                     <div class="card neumorph-pop">
                         <div class="card-body card-cta">
                             <div class="image">
-                                <i class="fa-solid fa-plus"></i>
+                                <a href="#closing">
+                                    <i class="fa-solid fa-plus"></i>
+                                </a>
                             </div>
                             <h3>Add Your Web or Apps Here</h3>
                             <div class="contact">
@@ -287,6 +294,36 @@
                             </div>
                             <h3>Tubagus Kresna Bayu</h3>
                             <div class="contact">
+                                @if (isset($item['fields']['ct_linkedin']))
+                                    <a class="button neumorph-pop" href="{{ $item['fields']['ct_linkedin'] }}"
+                                        target="_blank">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </a>
+                                @endif
+                                @if (isset($item['fields']['ct_web']))
+                                    <a class="button neumorph-pop" href="{{ $item['fields']['ct_web'] }}"
+                                        target="_blank">
+                                        <i class="fa-solid fa-globe"></i>
+                                    </a>
+                                @endif
+                                @if (isset($item['fields']['ct_github']))
+                                    <a class="button neumorph-pop" href="{{ $item['fields']['ct_github'] }}"
+                                        target="_blank">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                @endif
+                                @if (isset($item['fields']['ct_behance']))
+                                    <a class="button neumorph-pop" href="{{ $item['fields']['ct_behance'] }}"
+                                        target="_blank">
+                                        <i class="fa-brands fa-behance"></i>
+                                    </a>
+                                @endif
+                                @if (isset($item['fields']['ct_dribbble']))
+                                    <a class="button neumorph-pop" href="{{ $item['fields']['ct_dribbble'] }}"
+                                        target="_blank">
+                                        <i class="fa-brands fa-dribbble"></i>
+                                    </a>
+                                @endif
                                 @if (isset($item['fields']['ct_ig']))
                                     <a class="button neumorph-pop" href="{{ $item['fields']['ct_ig'] }}"
                                         target="_blank">
@@ -298,27 +335,6 @@
                                     <a class="button neumorph-pop" href="mailto:{{ $item['fields']['ct_email'] }}"
                                         target="_blank">
                                         <i class="far fa-envelope"></i>
-                                    </a>
-                                @endif
-
-                                @if (isset($item['fields']['ct_linkedin']))
-                                    <a class="button neumorph-pop" href="{{ $item['fields']['ct_linkedin'] }}"
-                                        target="_blank">
-                                        <i class="fa-brands fa-linkedin-in"></i>
-                                    </a>
-                                @endif
-
-                                @if (isset($item['fields']['ct_web']))
-                                    <a class="button neumorph-pop" href="{{ $item['fields']['ct_web'] }}"
-                                        target="_blank">
-                                        <i class="fa-solid fa-globe"></i>
-                                    </a>
-                                @endif
-
-                                @if (isset($item['fields']['ct_github']))
-                                    <a class="button neumorph-pop" href="{{ $item['fields']['ct_github'] }}"
-                                        target="_blank">
-                                        <i class="fa-brands fa-github"></i>
                                     </a>
                                 @endif
                             </div>
@@ -395,21 +411,20 @@
                 </div>
             </div>
         </form>
-
         <div class="row mt-5">
-            <div class="col-md-4 mb-3">
-                <a href="mailto:tubagusflow@gmail.com" class="neumorph-pop">
-                    <h3>
-                        <i class="far fa-envelope"></i>
-                        tubagusflow@gmail.com
-                    </h3>
-                </a>
-            </div>
             <div class="col-md-4 mb-3">
                 <a href="https://wa.me/081311521443" class="neumorph-pop">
                     <h3>
                         <i class="fab fa-whatsapp"></i>
                         081311521443
+                    </h3>
+                </a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="mailto:tubagusflow@gmail.com" class="neumorph-pop">
+                    <h3>
+                        <i class="far fa-envelope"></i>
+                        tubagusflow@gmail.com
                     </h3>
                 </a>
             </div>

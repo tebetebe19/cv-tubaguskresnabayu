@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => '/'], function () {
-    Route::get('/', [HomeController::class, 'index']);
+    Route::get('/', [HomeController::class, 'new']);
     Route::get('/cv', [HomeController::class, 'cv']);
     Route::get('/for-sale/{slug}', [HomeController::class, 'prototype']);
 
-    Route::get('/new', [HomeController::class, 'new']);
+    Route::get('/v1', [HomeController::class, 'v1']);
 });

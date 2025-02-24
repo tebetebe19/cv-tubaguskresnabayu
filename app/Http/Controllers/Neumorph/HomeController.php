@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function v1()
     {
         $apiKey = env('AIRTABLE_KEY');
         $baseId = env('AIRTABLE_BASE_ID');
