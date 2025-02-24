@@ -292,7 +292,7 @@
                                     alt="">
                                 <div class="overlay">{{ $item['fields']['role'] }}</div>
                             </div>
-                            <h3>Tubagus Kresna Bayu</h3>
+                            <h3>{{ $item['fields']['name'] }}</h3>
                             <div class="contact">
                                 @if (isset($item['fields']['ct_linkedin']))
                                     <a class="button neumorph-pop" href="{{ $item['fields']['ct_linkedin'] }}"
