@@ -167,7 +167,7 @@ class HomeController extends Controller
             ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableSaleProject);
         $saleProjects = json_decode($responseSaleProject, true)['records'];
 
-        return response($filteredexpProject);
+        // return response($filteredexpProject);
 
 
         return view('neumorph.page.home-new', compact('client','team','categoriesexpProject','categoriessaleProject','filteredexpProject','benefit','saleProjects'));
