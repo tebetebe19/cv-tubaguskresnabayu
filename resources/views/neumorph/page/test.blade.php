@@ -393,6 +393,9 @@
                                 </div>
                             </div>
                         `);
+
+                    var porto_top = $("#portfolio").offset().top;
+                    var porto_bottom = porto_top + $("#portfolio").height();
                 },
                 error: function(xhr, status, error) {
                     console.error('Failed to load experience projects:', error);
@@ -428,6 +431,8 @@
                             </div>
                         `);
                     });
+                    var benefit_top = $("#benefit").offset().top;
+                    var benefit_bottom = benefit_top + $("#benefit").height();
                 },
                 error: function(xhr, status, error) {
                     console.error('Failed to load experience projects:', error);
@@ -437,7 +442,7 @@
         });
     </script>
 
-    {{-- Ajax Exp Projects --}}
+    {{-- Ajax Sale Projects --}}
     <script>
         $(document).ready(function() {
             $.ajax({
@@ -469,6 +474,8 @@
                             </div>
                         `);
                     });
+                    var sale_top = $("#sale").offset().top;
+                    var sale_bottom = sale_top + $("#sale").height();
                 },
                 error: function(xhr, status, error) {
                     console.error('Failed to load experience projects:', error);
@@ -538,6 +545,8 @@
                         html += '</div>';
                     });
                     $('#teamList').html(html);
+                    var team_top = $("#team").offset().top;
+                    var team_bottom = team_top + $("#team").height();
                 },
                 error: function(xhr, status, error) {
                     console.error('Error fetching team data:', error);
@@ -590,17 +599,17 @@
             var who_top = $("#who").offset().top;
             var who_bottom = who_top + $("#who").height();
 
-            var porto_top = $("#portfolio").offset().top;
-            var porto_bottom = porto_top + $("#portfolio").height();
+            // var porto_top = $("#portfolio").offset().top;
+            // var porto_bottom = porto_top + $("#portfolio").height();
 
-            var benefit_top = $("#benefit").offset().top;
-            var benefit_bottom = benefit_top + $("#benefit").height();
+            // var benefit_top = $("#benefit").offset().top;
+            // var benefit_bottom = benefit_top + $("#benefit").height();
 
-            var sale_top = $("#sale").offset().top;
-            var sale_bottom = sale_top + $("#sale").height();
+            // var sale_top = $("#sale").offset().top;
+            // var sale_bottom = sale_top + $("#sale").height();
 
-            var team_top = $("#team").offset().top;
-            var team_bottom = team_top + $("#team").height();
+            // var team_top = $("#team").offset().top;
+            // var team_bottom = team_top + $("#team").height();
 
             console.log();
             $(window).scroll(function() {
