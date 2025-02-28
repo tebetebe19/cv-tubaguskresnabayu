@@ -132,7 +132,7 @@ class HomeController extends Controller
         $responseTeam = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
         ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableTeam.'?sort[0][field]=sort');
         $team = json_decode($responseTeam, true)['records'];
-        return response($team);
+        // return response($team);
 
         // Fetch Categories
         $responseCategories = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
