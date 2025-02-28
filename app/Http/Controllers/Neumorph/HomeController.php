@@ -16,7 +16,6 @@ class HomeController extends Controller
         $tableSaleProject = env('AIRTABLE_TABLE_SALE_PROJECT');
         $tableBenefit = env('AIRTABLE_TABLE_BENEFIT');
         $tableTools = env('AIRTABLE_TABLE_TOOLS');
-
         // Fetch Tools
         $responseTools = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
             ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableTools);
@@ -133,7 +132,7 @@ class HomeController extends Controller
         $responseTeam = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
         ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableTeam.'?sort[0][field]=sort');
         $team = json_decode($responseTeam, true)['records'];
-        // return response($team);
+        return response($team);
 
         // Fetch Categories
         $responseCategories = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
@@ -168,11 +167,87 @@ class HomeController extends Controller
             ->get('https://api.airtable.com/v0/'.$baseId.'/'.$tableSaleProject);
         $saleProjects = json_decode($responseSaleProject, true)['records'];
 
+        return response($filteredexpProject);
+
 
         return view('neumorph.page.home-new', compact('client','team','categoriesexpProject','categoriessaleProject','filteredexpProject','benefit','saleProjects'));
     }
 
-    // public function new(){
-    //     return view('neumorph.page.home-new');
-    // }
+    private function fetchAirtableData($table, $queryParams = '')
+    {
+        $apiKey = env('AIRTABLE_KEY');
+        $baseId = env('AIRTABLE_BASE_ID');
+
+        $response = Http::withHeaders(['Authorization' => 'Bearer '.$apiKey])
+            ->get('https://api.airtable.com/v0/'.$baseId.'/'.$table.$queryParams);
+
+        return json_decode($response, true)['records'];
+    }
+
+    public function client()
+    {
+        $tableClient = env('AIRTABLE_TABLE_CLIENT');
+        $client = $this->fetchAirtableData($tableClient);
+
+        return response($client);
+    }
+
+    public function categories()
+    {
+        $tableCategories = env('AIRTABLE_TABLE_CATEGORIES');
+        $categories = $this->fetchAirtableData($tableCategories);
+
+        $categoriesexpProject = collect($categories)->filter(function ($category) {
+            return $category['fields']['is_available_experience'] == 1;
+        })->values()->all();
+
+        $categoriessaleProject = collect($categories)->filter(function ($category) {
+            return $category['fields']['is_available_forsale'] == 1;
+        })->values()->all();
+
+        return response()->json([
+            'categoriesexpProject' => $categoriesexpProject,
+            'categoriessaleProject' => $categoriessaleProject,
+        ]);
+    }
+
+    public function expProjects()
+    {
+        $tableExpProject = env('AIRTABLE_TABLE_EXP_PROJECT');
+        $expProjects = $this->fetchAirtableData($tableExpProject, '?sort[0][field]=sort');
+
+        $filteredexpProject = collect($expProjects)->filter(function ($expProject) {
+            return $expProject['fields']['is_active'] == 1;
+        })->values()->all();
+        
+        return response()->json($filteredexpProject);
+    }
+
+    public function benefits(){
+        $tableBenefit = env('AIRTABLE_TABLE_BENEFIT');
+        $benefit = $this->fetchAirtableData($tableBenefit);
+
+        return response($benefit);
+    }
+
+    public function saleProjects()
+    {
+        $tableSaleProject = env('AIRTABLE_TABLE_SALE_PROJECT');
+        $saleProjects = $this->fetchAirtableData($tableSaleProject);
+
+        return response($saleProjects);
+    }
+
+    public function team()
+    {
+        $tableTeam = env('AIRTABLE_TABLE_TEAM');
+        $team = $this->fetchAirtableData($tableTeam, '?sort[0][field]=sort');
+
+        return response($team);
+    }
+
+    public function test ()
+    {
+        return view('neumorph.page.test');
+    }
 }

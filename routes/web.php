@@ -18,6 +18,15 @@ Route::group(['prefix' => '/'], function () {
     Route::get('/', [HomeController::class, 'new']);
     Route::get('/cv', [HomeController::class, 'cv']);
     Route::get('/for-sale/{slug}', [HomeController::class, 'prototype']);
-
     Route::get('/v1', [HomeController::class, 'v1']);
+    Route::get('/test', [HomeController::class, 'test']);
+});
+
+Route::group(['prefix'=>'/data'], function(){
+    Route::get('/client', [HomeController::class, 'client']);
+    Route::get('/categories',[HomeController::class, 'categories']);
+    Route::get('/expProjects', [HomeController::class, 'expProjects']);
+    Route::get('/benefits', [HomeController::class, 'benefits']);
+    Route::get('/saleProjects', [HomeController::class, 'saleProjects']);
+    Route::get('/team', [HomeController::class, 'team']);
 });

@@ -508,27 +508,4 @@
             });
         });
     </script>
-    {{-- <script>
-        $(document).on('click', '#not_ready', function() {
-            swal({
-                    title: "Almost There!",
-                    text: "But, This form is not yet fully functional. You can contact us directly",
-                    type: "info",
-                    confirmButtonText: "Yes!",
-                    showCancelButton: true
-                })
-                .then((result) => {
-                    if (result.value) {
-                        window.location = 'https://mailto:tubagusflow@gmail.com';
-                    } else if (result.dismiss === 'cancel') {
-                        swal(
-                            'Well, maybe next time',
-                            'Enjoy your day :D',
-                            //   'error'
-                        )
-                    }
-                })
-
-        });
-    </script> --}}
 @endsection
