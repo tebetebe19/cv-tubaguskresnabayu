@@ -5,16 +5,17 @@
 @endsection
 
 @section('content')
-    <nav>
+    <nav class="">
         <div class="container nav-item">
-            <div class="nav-logo phone-only">
-                <a href="#intro">
-                    <img src="{{ asset('assets/img/logo/tab-icon.png') }}" alt="">
-                </a>
-            </div>
-            {{-- <img class="nav-logo phone-only" href="#intro" src="" alt=""> --}}
-            <div class="nav-icon phone-only neumorph-pop">
-                <i class="fa-solid fa-bars"></i>
+            <div class="bag">
+                <div class="nav-logo phone-only">
+                    <a href="#intro">
+                        <img src="{{ asset('assets/img/logo/tab-icon.png') }}" alt="Big Digital Development">
+                    </a>
+                </div>
+                <div class="nav-icon phone-only">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </div>
             <div class="nav-menu neumorph-pop">
                 <ul>

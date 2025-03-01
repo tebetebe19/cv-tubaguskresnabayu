@@ -164,25 +164,26 @@ nav {
 }
 @media only screen and (max-width: 575px) {
   nav.scrolled {
-    top: 0%;
-  }
-  nav.scrolled .nav-item {
-    padding: 20px 30px;
+    top: 30px;
   }
   nav .nav-item {
+    padding: 0px 30px;
+  }
+  nav .nav-item .bag {
     display: flex;
     justify-content: space-between;
-    padding: 10px 30px;
     background-color: var(--primary-new);
+    border-radius: 10px;
     box-shadow: 2px 2px 2px #25282d, -2px -2px 2px #4d525a;
+    padding: 10px;
   }
-  nav .nav-item .nav-logo {
+  nav .nav-item .bag .nav-logo {
     height: 50px;
   }
-  nav .nav-item .nav-logo img {
+  nav .nav-item .bag .nav-logo img {
     height: 100%;
   }
-  nav .nav-item .nav-icon {
+  nav .nav-item .bag .nav-icon {
     font-size: 25px;
     padding: 0px 12px 5px 12px;
     display: flex;

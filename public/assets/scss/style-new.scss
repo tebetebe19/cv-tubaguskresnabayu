@@ -167,9 +167,9 @@ nav {
 // Phone Screen
 @media only screen and (max-width: 575px) {
     nav.scrolled {
-        top: 0%;
+        top: 30px;
         .nav-item {
-            padding: 20px 30px;
+            // padding: 20px 30px;
             .nav-logo {
                 // height: 60px;
             }
@@ -177,26 +177,29 @@ nav {
     }
     nav {
         .nav-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 30px;
-            background-color: var(--primary-new);
-            box-shadow:
-                2px 2px 2px #25282d,
-                -2px -2px 2px #4d525a;
-
-            .nav-logo {
-                height: 50px;
-                img {
-                    height: 100%;
-                }
-            }
-            .nav-icon {
-                font-size: 25px;
-                padding: 0px 12px 5px 12px;
+            padding: 0px 30px;
+            .bag {
                 display: flex;
-                align-items: center;
-                justify-content: center;
+                justify-content: space-between;
+                background-color: var(--primary-new);
+                border-radius: 10px;
+                box-shadow:
+                    2px 2px 2px #25282d,
+                    -2px -2px 2px #4d525a;
+                padding: 10px;
+                .nav-logo {
+                    height: 50px;
+                    img {
+                        height: 100%;
+                    }
+                }
+                .nav-icon {
+                    font-size: 25px;
+                    padding: 0px 12px 5px 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
             }
 
             .nav-menu {
