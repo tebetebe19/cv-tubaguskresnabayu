@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
-    public function v1()
+    public function v1Blade()
     {
         $apiKey = env('AIRTABLE_KEY');
         $baseId = env('AIRTABLE_BASE_ID');
@@ -56,7 +56,7 @@ class HomeController extends Controller
 
         // return response($saleProjects);
 
-        return view('neumorph.page.home', compact('categoriesexpProject','categoriessaleProject','filteredexpProject','benefit','saleProjects','tools'));
+        return view('neumorph.page.v1Blade', compact('categoriesexpProject','categoriessaleProject','filteredexpProject','benefit','saleProjects','tools'));
     }
 
     public function cv()
@@ -112,7 +112,7 @@ class HomeController extends Controller
         return view('neumorph.page.proj-live', compact('project'));
     }
 
-    public function new()
+    public function v2Blade()
     {
         $apiKey = env('AIRTABLE_KEY');
         $baseId = env('AIRTABLE_BASE_ID');
@@ -170,7 +170,7 @@ class HomeController extends Controller
         // return response($filteredexpProject);
 
 
-        return view('neumorph.page.home-new', compact('client','team','categoriesexpProject','categoriessaleProject','filteredexpProject','benefit','saleProjects'));
+        return view('neumorph.page.v2Blade', compact('client','team','categoriesexpProject','categoriessaleProject','filteredexpProject','benefit','saleProjects'));
     }
 
     private function fetchAirtableData($table, $queryParams = '')
@@ -246,8 +246,8 @@ class HomeController extends Controller
         return response($team);
     }
 
-    public function test ()
+    public function v2Ajax ()
     {
-        return view('neumorph.page.test');
+        return view('neumorph.page.v2AJax');
     }
 }

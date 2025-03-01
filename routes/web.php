@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => '/'], function () {
-    Route::get('/', [HomeController::class, 'new']);
+    Route::get('/', [HomeController::class, 'v2Ajax']);
     Route::get('/cv', [HomeController::class, 'cv']);
     Route::get('/for-sale/{slug}', [HomeController::class, 'prototype']);
-    Route::get('/v1', [HomeController::class, 'v1']);
-    Route::get('/test', [HomeController::class, 'test']);
+    Route::get('/v1Blade', [HomeController::class, 'v1Blade']);
+    Route::get('/v2Blade', [HomeController::class, 'v2Blade']);
 });
 
 Route::group(['prefix'=>'/data'], function(){

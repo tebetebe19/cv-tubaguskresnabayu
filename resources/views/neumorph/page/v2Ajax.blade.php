@@ -265,9 +265,45 @@
         });
     </script>
 
-    {{-- Ajax Client --}}
+
+    <script>
+        function Calculate() {
+            var intro_top = $("#intro").offset().top;
+            var intro_bottom = intro_top + $("#intro").height();
+
+            var who_top = $("#who").offset().top;
+            var who_bottom = who_top + $("#who").height();
+
+            var porto_top = $("#portfolio").offset().top;
+            var porto_bottom = porto_top + $("#portfolio").height();
+
+            var benefit_top = $("#benefit").offset().top;
+            var benefit_bottom = benefit_top + $("#benefit").height();
+
+            var sale_top = $("#sale").offset().top;
+            var sale_bottom = sale_top + $("#sale").height();
+
+            var team_top = $("#team").offset().top;
+            var team_bottom = team_top + $("#team").height();
+
+            $(window).scroll(function() {
+                var screen_pos = $(window).scrollTop() + Math.floor($(window).height() / 2);
+                $('#nav-intro').toggleClass("neumorph-drop", (screen_pos >= intro_top && screen_pos <= who_bottom));
+                $('#nav-portfolio').toggleClass("neumorph-drop", (screen_pos >= porto_top && screen_pos <=
+                    porto_bottom));
+                $('#nav-benefit').toggleClass("neumorph-drop", (screen_pos >= benefit_top && screen_pos <=
+                    benefit_bottom));
+                $('#nav-sale').toggleClass("neumorph-drop", (screen_pos >= sale_top && screen_pos <= sale_bottom));
+                $('#nav-team').toggleClass("neumorph-drop", (screen_pos >= team_top && screen_pos <= team_bottom));
+            });
+        }
+    </script>
+
+    {{-- Ajax Looping --}}
     <script>
         $(document).ready(function() {
+
+            // Ajax client
             $.ajax({
                 url: '/data/client',
                 method: 'GET',
@@ -301,12 +337,8 @@
                     $('#splide__list').html('Failed to load client data.');
                 }
             });
-        });
-    </script>
 
-    {{-- Ajax Exp Projects --}}
-    <script>
-        $(document).ready(function() {
+            // Ajax Exp Project
             $.ajax({
                 url: '/data/expProjects',
                 method: 'GET',
@@ -393,21 +425,14 @@
                                 </div>
                             </div>
                         `);
-
-                    var porto_top = $("#portfolio").offset().top;
-                    var porto_bottom = porto_top + $("#portfolio").height();
                 },
                 error: function(xhr, status, error) {
                     console.error('Failed to load experience projects:', error);
                     $('#expProject').html('Failed to load experience projects.');
                 }
             });
-        });
-    </script>
 
-    {{-- Ajax Benefits --}}
-    <script>
-        $(document).ready(function() {
+            // Ajax Benefits
             $.ajax({
                 url: '/data/benefits',
                 method: 'GET',
@@ -431,20 +456,15 @@
                             </div>
                         `);
                     });
-                    var benefit_top = $("#benefit").offset().top;
-                    var benefit_bottom = benefit_top + $("#benefit").height();
+
                 },
                 error: function(xhr, status, error) {
                     console.error('Failed to load experience projects:', error);
                     $('#benefits').html('Failed to load experience projects.');
                 }
             });
-        });
-    </script>
 
-    {{-- Ajax Sale Projects --}}
-    <script>
-        $(document).ready(function() {
+            // Ajax Sale Projects
             $.ajax({
                 url: '/data/saleProjects',
                 method: 'GET',
@@ -474,20 +494,14 @@
                             </div>
                         `);
                     });
-                    var sale_top = $("#sale").offset().top;
-                    var sale_bottom = sale_top + $("#sale").height();
                 },
                 error: function(xhr, status, error) {
                     console.error('Failed to load experience projects:', error);
                     $('#expProject').html('Failed to load experience projects.');
                 }
             });
-        });
-    </script>
 
-    {{-- Ajax Team --}}
-    <script>
-        $(document).ready(function() {
+            // Ajax Team
             $.ajax({
                 url: '/data/team',
                 method: 'GET',
@@ -545,25 +559,18 @@
                         html += '</div>';
                     });
                     $('#teamList').html(html);
-                    var team_top = $("#team").offset().top;
-                    var team_bottom = team_top + $("#team").height();
                 },
                 error: function(xhr, status, error) {
                     console.error('Error fetching team data:', error);
                 }
             });
-        });
-    </script>
 
-    {{-- Ajax Categories Exp + Sale Project --}}
-    <script>
-        $(document).ready(function() {
+            // Ajax Categories + Calculate
             $.ajax({
                 url: '/data/categories', // Sesuaikan dengan route Anda
                 method: 'GET',
                 success: function(response) {
                     // Handle data untuk section #categoriesexpProject
-                    // $('#categoriesexpProject').empty();
                     response.categoriesexpProject.forEach(function(category) {
                         $('#categoriesexpProject').append(`
                             <div class="col-xl-2 col-lg-3 col-md-4 col-6 mb-4">
@@ -573,7 +580,6 @@
                     });
 
                     // Handle data untuk section #categoriessaleProject
-                    // $('#categoriessaleProject').empty();
                     response.categoriessaleProject.forEach(function(category) {
                         $('#categoriessaleProject').append(`
                             <div class="col-xl-2 col-lg-3 col-md-4 col-6 mb-4">
@@ -581,49 +587,14 @@
                             </div>
                         `);
                     });
+
+                    Calculate();
                 },
                 error: function(xhr, status, error) {
                     console.error('Failed to load categories data:', error);
                     $('#categoriesexpProject').html('Failed to load experience categories.');
                     $('#categoriessaleProject').html('Failed to load for sale categories.');
                 }
-            });
-        });
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            var intro_top = $("#intro").offset().top;
-            var intro_bottom = intro_top + $("#intro").height();
-
-            var who_top = $("#who").offset().top;
-            var who_bottom = who_top + $("#who").height();
-
-            // var porto_top = $("#portfolio").offset().top;
-            // var porto_bottom = porto_top + $("#portfolio").height();
-
-            // var benefit_top = $("#benefit").offset().top;
-            // var benefit_bottom = benefit_top + $("#benefit").height();
-
-            // var sale_top = $("#sale").offset().top;
-            // var sale_bottom = sale_top + $("#sale").height();
-
-            // var team_top = $("#team").offset().top;
-            // var team_bottom = team_top + $("#team").height();
-
-            console.log();
-            $(window).scroll(function() {
-                var screen_pos = $(window).scrollTop() + Math.floor($(window).height() / 2);
-                $('#nav-intro').toggleClass("neumorph-drop", (screen_pos >= intro_top && screen_pos <=
-                    who_bottom));
-                $('#nav-portfolio').toggleClass("neumorph-drop", (screen_pos >= porto_top && screen_pos <=
-                    porto_bottom));
-                $('#nav-benefit').toggleClass("neumorph-drop", (screen_pos >= benefit_top && screen_pos <=
-                    benefit_bottom));
-                $('#nav-sale').toggleClass("neumorph-drop", (screen_pos >= sale_top && screen_pos <=
-                    sale_bottom));
-                $('#nav-team').toggleClass("neumorph-drop", (screen_pos >= team_top && screen_pos <=
-                    team_bottom));
             });
         });
     </script>
