@@ -265,6 +265,16 @@
         });
     </script>
 
+    <script>
+        $(document).ready(function() {
+            var intro_top = $("#intro").offset().top;
+            var intro_bottom = intro_top + $("#intro").height();
+            $(window).scroll(function() {
+                var screen_pos = $(window).scrollTop();
+                $('nav').toggleClass("scrolled", (screen_pos >= intro_bottom));
+            });
+        });
+    </script>
 
     <script>
         function Calculate() {
@@ -295,6 +305,8 @@
                     benefit_bottom));
                 $('#nav-sale').toggleClass("neumorph-drop", (screen_pos >= sale_top && screen_pos <= sale_bottom));
                 $('#nav-team').toggleClass("neumorph-drop", (screen_pos >= team_top && screen_pos <= team_bottom));
+
+
             });
         }
     </script>

@@ -137,6 +137,7 @@ nav {
     z-index: 1;
     position: fixed;
     top: 5%;
+    transition: top 0.3s;
 }
 
 // Non Phone Screen
@@ -165,6 +166,15 @@ nav {
 
 // Phone Screen
 @media only screen and (max-width: 575px) {
+    nav.scrolled {
+        top: 0%;
+        .nav-item {
+            padding: 20px 30px;
+            .nav-logo {
+                // height: 60px;
+            }
+        }
+    }
     nav {
         .nav-item {
             display: flex;
@@ -183,9 +193,10 @@ nav {
             }
             .nav-icon {
                 font-size: 25px;
-                padding: 5px 12px;
+                padding: 0px 12px 5px 12px;
                 display: flex;
                 align-items: center;
+                justify-content: center;
             }
 
             .nav-menu {
