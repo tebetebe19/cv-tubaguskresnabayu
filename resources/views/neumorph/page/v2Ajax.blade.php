@@ -299,9 +299,21 @@
         }
     </script>
 
+    <script>
+        function Counter() {
+            if (counter = 4) {
+                Calculate();
+            } else {
+                counter = counter + 1;
+            }
+        }
+    </script>
+
     {{-- Ajax Looping --}}
     <script>
         $(document).ready(function() {
+
+            var counter = 0;
 
             // Ajax client
             $.ajax({
@@ -331,6 +343,7 @@
                         gap: 30,
                     });
                     splide.mount(window.splide.Extensions);
+                    Counter();
                 },
                 error: function(xhr, status, error) {
                     // Tampilkan pesan error jika request gagal
@@ -425,6 +438,7 @@
                                 </div>
                             </div>
                         `);
+                    Counter();
                 },
                 error: function(xhr, status, error) {
                     console.error('Failed to load experience projects:', error);
@@ -456,6 +470,7 @@
                             </div>
                         `);
                     });
+                    Counter();
 
                 },
                 error: function(xhr, status, error) {
@@ -494,6 +509,7 @@
                             </div>
                         `);
                     });
+                    Counter();
                 },
                 error: function(xhr, status, error) {
                     console.error('Failed to load experience projects:', error);
@@ -559,6 +575,7 @@
                         html += '</div>';
                     });
                     $('#teamList').html(html);
+                    Counter();
                 },
                 error: function(xhr, status, error) {
                     console.error('Error fetching team data:', error);
@@ -588,7 +605,7 @@
                         `);
                     });
 
-                    Calculate();
+                    Counter();
                 },
                 error: function(xhr, status, error) {
                     console.error('Failed to load categories data:', error);
@@ -596,6 +613,7 @@
                     $('#categoriessaleProject').html('Failed to load for sale categories.');
                 }
             });
+
         });
     </script>
 @endsection
