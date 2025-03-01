@@ -248,6 +248,6 @@ class HomeController extends Controller
 
     public function v2Ajax ()
     {
-        return view('neumorph.page.v2AJax');
+        return view('neumorph.page.v2Ajax');
     }
 }
