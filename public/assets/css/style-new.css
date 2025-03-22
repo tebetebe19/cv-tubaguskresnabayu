@@ -79,7 +79,6 @@ h5 {
 .uk-active {
   background: var(--primary-new);
   border-radius: 10px;
-  -webkit-appearance: none;
   box-shadow: inset 2px 2px 2px #25282d, inset -2px -2px 2px #4d525a;
   -webkit-box-shadow: inset 2px 2px 2px #25282d, inset -2px -2px 2px #4d525a;
   -moz-box-shadow: inset 2px 2px 2px #25282d, inset -2px -2px 2px #4d525a;
@@ -135,7 +134,7 @@ section:last-of-type {
 
 nav {
   width: 100%;
-  z-index: 1;
+  z-index: 20;
   position: fixed;
   top: 5%;
   transition: top 0.3s;
@@ -336,6 +335,87 @@ nav {
     gap: 0px !important;
   }
 }
+#exp .list {
+  margin-top: -10px;
+}
+#exp .list:first-of-type {
+  margin-top: 0px;
+}
+#exp .list-line {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+#exp .list-line .line-shadow {
+  height: 100%;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+}
+#exp .list-line .line-shadow .v-line {
+  height: 100%;
+  width: 10px;
+}
+#exp .list-line .line-shadow .h-line {
+  height: 10px;
+  width: 300px;
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  transform: translate(0%, -50%);
+  border-radius: 100px;
+}
+#exp .list-line .hover {
+  z-index: 2;
+  padding: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#exp .list-line .round-shadow {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 40px;
+  transform: translate(0%, -50%);
+  border-radius: 100px;
+}
+#exp .list-line .round {
+  background-color: white;
+  box-shadow: none;
+  width: 80%;
+  height: 80%;
+  border-radius: 100px;
+}
+#exp .info {
+  margin-bottom: 50px;
+}
+#exp .info h3 {
+  font-size: 18px;
+}
+#exp .info h4 {
+  font-size: 13px;
+}
+#exp .info p {
+  font-size: 14px;
+}
+#exp .info ul {
+  margin-bottom: 0px;
+}
+#exp:last-child .info {
+  margin-bottom: 0px;
+}
+#exp .list:last-child .info {
+  margin-bottom: 0px;
+}
+#exp .line-not-shadow {
+  height: 100%;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+
 #team,
 #portfolio,
 #sale {
@@ -438,6 +518,7 @@ nav {
   z-index: 100;
   background-color: white;
   color: black;
+  padding: 8px;
 }
 #team .card-body .modal .modal-body .carousel,
 #portfolio .card-body .modal .modal-body .carousel,
@@ -567,6 +648,25 @@ nav {
 #closing form input::-webkit-outer-spin-button,
 #closing form input::-webkit-inner-spin-button {
   -webkit-appearance: none;
+}
+
+#education {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#education .data h3 {
+  font-size: 18px;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+#education .data h4,
+#education .data p {
+  font-size: 13px;
+}
+#education .data h5 {
+  font-weight: lighter;
 }
 
 footer {

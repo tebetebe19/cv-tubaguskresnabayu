@@ -68,8 +68,6 @@ $description = $lang === 'id' ? $metaDescriptions['id'] : $metaDescriptions['en'
 
     @yield('content')
 
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
@@ -86,6 +84,29 @@ $description = $lang === 'id' ? $metaDescriptions['id'] : $metaDescriptions['en'
 
 
 
+    <script
+        src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js">
+    </script>
+    <script>
+        $(".nav-icon").click(function() {
+            $(".nav-menu").animate({
+                width: "toggle"
+            });
+            $(this).toggleClass('neumorph-drop');
+            $(this).toggleClass('neumorph-pop');
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            var intro_top = $("#intro").offset().top;
+            var intro_bottom = intro_top + $("#intro").height();
+            $(window).scroll(function() {
+                var screen_pos = $(window).scrollTop();
+                $('nav').toggleClass("scrolled", (screen_pos >= intro_bottom));
+            });
+        });
+    </script>
     @yield('js')
 </body>
 

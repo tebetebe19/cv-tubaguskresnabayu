@@ -59,7 +59,7 @@ class HomeController extends Controller
         return view('neumorph.page.v1Blade', compact('categoriesexpProject','categoriessaleProject','filteredexpProject','benefit','saleProjects','tools'));
     }
 
-    public function cv()
+    public function cv_v1()
     {
         $apiKey = env('AIRTABLE_KEY');
         $baseId = env('AIRTABLE_BASE_ID');
@@ -92,6 +92,11 @@ class HomeController extends Controller
         // return response($filteredexpProject);
 
         return view('neumorph.page.cv', compact('exp','categoriesexpProject','filteredexpProject' ));
+    }
+
+    public function cv_v2()
+    {
+        return view('neumorph.page.cv_v2');
     }
 
     public function prototype($slug)
@@ -244,6 +249,14 @@ class HomeController extends Controller
         $team = $this->fetchAirtableData($tableTeam, '?sort[0][field]=sort');
 
         return response($team);
+    }
+
+    public function experiences()
+    {
+        $tableExp = env('AIRTABLE_TABLE_EXP');
+        $exp = $this->fetchAirtableData($tableExp,'?sort[0][field]=sort');
+
+        return response($exp);
     }
 
     public function v2Ajax ()

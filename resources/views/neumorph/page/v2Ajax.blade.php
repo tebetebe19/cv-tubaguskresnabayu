@@ -5,34 +5,7 @@
 @endsection
 
 @section('content')
-    <nav class="">
-        <div class="container nav-item">
-            <div class="bag">
-                <div class="nav-logo phone-only">
-                    <a href="#intro">
-                        <img src="{{ asset('assets/img/logo/tab-icon.png') }}" alt="Big Digital Development">
-                    </a>
-                </div>
-                <div class="nav-icon phone-only">
-                    <i class="fa-solid fa-bars"></i>
-                </div>
-            </div>
-            <div class="nav-menu neumorph-pop">
-                <ul>
-                    <li id="nav-intro" class="phone-only"><a href="#intro">Introduction</a></li>
-                    <li id="nav-portfolio" class=""><a href="#portfolio">Our Work</a></li>
-                    <li id="nav-benefit"><a href="#benefit">Benefit</a></li>
-                    <li class="phone-hide">
-                        <a href="#intro">
-                            <img src="{{ asset('assets/img/logo/tab-icon.png') }}" alt="">
-                        </a>
-                    </li>
-                    <li id="nav-sale"><a href="#sale">For Sale</a></li>
-                    <li id="nav-team"><a href="#team">Team</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    @include('neumorph.layout.navbar_v2')
     <section id="intro" class="">
         <div class="bag">
             <h1>Big Digital Development</h1>
@@ -162,22 +135,24 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="mb-3">
-                        <input type="text" class="form-control neumorph-drop"
-                            placeholder="Enter Personal/Company Name Here">
+                        <input type="text" class="form-control neumorph-drop" name="name"
+                            placeholder="Enter Personal/Company Name Here" required>
                         <div class="form-text">Whatever you want, either nickname or fullname</div>
                     </div>
                     <div class="mb-3">
-                        <input type="email" class="form-control neumorph-drop" placeholder="Enter Email">
+                        <input type="email" class="form-control neumorph-drop" name="email"
+                            placeholder="Enter Email" required>
                         <div class="form-text">Email active only</div>
                     </div>
                     <div class="mb-3">
-                        <input type="number" class="form-control neumorph-drop" placeholder="Enter WhatsApp Number">
+                        <input type="number" class="form-control neumorph-drop" name="number"
+                            placeholder="Enter WhatsApp Number" required>
                         <div class="form-text">Might be for call or text</div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="mb-3">
-                        <textarea class="neumorph-drop" rows="7" placeholder="Describe your needs!"></textarea>
+                        <textarea class="neumorph-drop" rows="7" name="body" placeholder="Describe your needs!" required></textarea>
                         <div class="form-text">Tell us your references</div>
                     </div>
                 </div>
@@ -192,7 +167,7 @@
                                     <div class="modal-body">
                                         <i class="fa-regular fa-face-tired"></i>
                                         <p>
-                                            This form is not yet fully functional. <br> You can directly contact us!
+                                            This form is not fully functional yet. <br> You can directly contact us!
                                         </p>
                                         <div class="contact">
                                             <a class="button neumorph-pop" href="https://wa.me/081311521443"
@@ -253,30 +228,7 @@
 @endsection
 
 @section('js')
-    <script
-        src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js">
-    </script>
-    <script>
-        $(".nav-icon").click(function() {
-            $(".nav-menu").animate({
-                width: "toggle"
-            });
-            $(this).toggleClass('neumorph-drop');
-            $(this).toggleClass('neumorph-pop');
-        });
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            var intro_top = $("#intro").offset().top;
-            var intro_bottom = intro_top + $("#intro").height();
-            $(window).scroll(function() {
-                var screen_pos = $(window).scrollTop();
-                $('nav').toggleClass("scrolled", (screen_pos >= intro_bottom));
-            });
-        });
-    </script>
-
+    {{-- Function Calculate --}}
     <script>
         function Calculate() {
             var intro_top = $("#intro").offset().top;
@@ -312,21 +264,9 @@
         }
     </script>
 
-    <script>
-        function Counter() {
-            if (counter = 4) {
-                Calculate();
-            } else {
-                counter = counter + 1;
-            }
-        }
-    </script>
-
     {{-- Ajax Looping --}}
     <script>
         $(document).ready(function() {
-
-            var counter = 0;
 
             // Ajax client
             $.ajax({
@@ -356,7 +296,7 @@
                         gap: 30,
                     });
                     splide.mount(window.splide.Extensions);
-                    Counter();
+                    Calculate();
                 },
                 error: function(xhr, status, error) {
                     // Tampilkan pesan error jika request gagal
@@ -400,7 +340,7 @@
                                                     <div class="modal-body">
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         <div id="carousel${item.id}" class="carousel slide" data-bs-ride="carousel">
-                                                            <div class="carousel-inner">
+                                                            <div class="carousel-inner" data-bs-dismiss="modal">
                                                                 ${carouselItems}
                                                             </div>
                                                             <button class="carousel-control-prev" type="button" data-bs-target="#carousel${item.id}" data-bs-slide="prev">
@@ -424,7 +364,6 @@
                     let test = response.map(function(item) {
                         return item.fields.category_slug.join(' ');
                     }).join(' ');
-                    console.log(test);
                     $('#expProject').append(`
                             <div class="col-lg-4 col-md-6 ${test} all">
                                 <div class="card neumorph-pop">
@@ -451,7 +390,7 @@
                                 </div>
                             </div>
                         `);
-                    Counter();
+                    Calculate();
                 },
                 error: function(xhr, status, error) {
                     console.error('Failed to load experience projects:', error);
@@ -483,7 +422,7 @@
                             </div>
                         `);
                     });
-                    Counter();
+                    Calculate();
 
                 },
                 error: function(xhr, status, error) {
@@ -522,7 +461,7 @@
                             </div>
                         `);
                     });
-                    Counter();
+                    Calculate();
                 },
                 error: function(xhr, status, error) {
                     console.error('Failed to load experience projects:', error);
@@ -588,14 +527,14 @@
                         html += '</div>';
                     });
                     $('#teamList').html(html);
-                    Counter();
+                    Calculate();
                 },
                 error: function(xhr, status, error) {
                     console.error('Error fetching team data:', error);
                 }
             });
 
-            // Ajax Categories + Calculate
+            // Ajax Categories
             $.ajax({
                 url: '/data/categories', // Sesuaikan dengan route Anda
                 method: 'GET',
@@ -618,7 +557,7 @@
                         `);
                     });
 
-                    Counter();
+                    Calculate();
                 },
                 error: function(xhr, status, error) {
                     console.error('Failed to load categories data:', error);

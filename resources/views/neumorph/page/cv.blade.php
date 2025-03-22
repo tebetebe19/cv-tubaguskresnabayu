@@ -107,7 +107,7 @@
                 <div class="col-lg-6 picture first-phone">
                     <div class="outer card-morph-drop" style="">
                         <div class="inner card-morph-pop" style="">
-                            <img src="{{ asset('assets/img/logo/5x5.png') }}" alt="" style="">
+                            <img src="{{ asset('assets/img/logo/5x5.png') }}" alt="">
                         </div>
                     </div>
                 </div>

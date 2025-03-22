@@ -196,7 +196,7 @@ ul {
 .card-morph-drop {
     background: var(--primary-new);
     border-radius: 10px;
-    -webkit-appearance: none;
+    // -webkit-appearance: none;
     box-shadow:
         inset 2px 2px 2px #25282d,
         inset -2px -2px 2px #4d525a;
@@ -804,7 +804,7 @@ button {
 .uk-active {
     background: var(--primary-new);
     border-radius: 10px;
-    -webkit-appearance: none;
+    // -webkit-appearance: none;
     box-shadow:
         inset 2px 2px 2px #25282d,
         inset -2px -2px 2px #4d525a;
