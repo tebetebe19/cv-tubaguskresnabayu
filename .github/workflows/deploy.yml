@@ -26,7 +26,7 @@ jobs:
       - name: Login to Registry
         uses: docker/login-action@v1
         with:
-          registry: docker.pkg.github.com
+          registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_TOKEN }}
 
@@ -36,7 +36,7 @@ jobs:
           file: ./${{ matrix.docker_images.dockerfile }}
           push: true
           tags: |
-            docker.pkg.github.com/${{ env.repo }}/${{ matrix.docker_images.name }}:latest
+            ghcr.io/${{ env.repo }}/${{ matrix.docker_images.name }}:latest
 
   # deploy:
   #   needs: build-docker
