@@ -229,8 +229,8 @@
                                 <div class="round-shadow neumorph-pop"></div>
                                 <div class="line-shadow" style="position: absolute; z-index: 1;">
                                     <div class="bag" style="position: relative">
-                                        <div class="v-line neumorph-pop" style="box-shadow: none ;background: #172030;"></div>
-                                        <div class="h-line neumorph-pop" style="box-shadow: none; width: 80px; background: #172030;">
+                                        <div class="v-line v-line-shadow neumorph-pop" style="box-shadow: none"></div>
+                                        <div class="h-line h-line-shadow neumorph-pop" style="box-shadow: none; width: 80px;">
                                         </div>
                                     </div>
                                 </div>

@@ -1,5 +1,5 @@
 :root {
-  --primary-new: #172030 !important;
+  --primary-new: #051532 !important;
   --grad-one: #2e3239;
   --grad-two: #272a30;
   --shadow-dark: #0d1728;
@@ -356,6 +356,9 @@ nav {
   height: 100%;
   width: 10px;
 }
+#exp .list-line .line-shadow .v-line-shadow {
+  background: var(--primary-new);
+}
 #exp .list-line .line-shadow .h-line {
   height: 10px;
   width: 300px;
@@ -364,6 +367,9 @@ nav {
   left: 0px;
   transform: translate(0%, -50%);
   border-radius: 100px;
+}
+#exp .list-line .line-shadow .h-line-shadow {
+  background: var(--primary-new);
 }
 #exp .list-line .hover {
   z-index: 2;
