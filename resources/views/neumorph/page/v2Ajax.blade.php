@@ -127,7 +127,7 @@
     </section>
 
     <section id="closing" class="container">
-        <h2 class="section-title">Getting Closer</h2>
+        <h2 class="section-title">Closer to Us</h2>
         <p class="section-sub-title">
             We are always here to help you with your digital development needs
         </p>
