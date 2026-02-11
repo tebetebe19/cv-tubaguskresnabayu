@@ -37,7 +37,7 @@ COPY --chown=www-data --from=composer /var/www/html/vendor ./vendor
 COPY --chown=www-data:www-data ./ ./
 
 # Run necessary commands
-RUN composer dump-autoload \
-    && composer clear-cache 
+# RUN composer dump-autoload \
+#     && composer clear-cache 
     # && php artisan livewire:publish --assets \
     # && php artisan filament:assets
