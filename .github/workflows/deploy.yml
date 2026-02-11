@@ -34,10 +34,10 @@ jobs:
           tags: |
             docker.pkg.github.com/${{ env.repo }}/${{ matrix.docker_images.name }}:latest
 
-  deploy:
-    needs: build-docker
-    name: Deploy Application
-    runs-on: ubuntu-latest
-    steps:
-      - name: Trigger Deployment
-        run: curl ${{ vars.DOKPLOY_DEPLOY_URL }}
+  # deploy:
+  #   needs: build-docker
+  #   name: Deploy Application
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Trigger Deployment
+  #       run: curl ${{ vars.DOKPLOY_DEPLOY_URL }}
