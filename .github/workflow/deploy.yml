@@ -1,7 +1,7 @@
 name: Deploy Dev
 on:
   push:
-    branches: develop
+    branches: main
 jobs:
   build-docker:
     name: Build and Push Docker Images
