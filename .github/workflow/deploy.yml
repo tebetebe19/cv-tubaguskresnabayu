@@ -1,0 +1,43 @@
+name: Deploy Dev
+on:
+  push:
+    branches: develop
+jobs:
+  build-docker:
+    name: Build and Push Docker Images
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        docker_images:
+          - dockerfile: Dockerfile
+            name: web
+    steps:
+      - name: Convert repository name to lowercase
+        id: tolower
+        run: echo "repo=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to Registry
+        uses: docker/login-action@v1
+        with:
+          registry: docker.pkg.github.com
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push to GitHub Packages
+        uses: docker/build-push-action@v2
+        with:
+          file: ./${{ matrix.docker_images.dockerfile }}
+          push: true
+          tags: |
+            docker.pkg.github.com/${{ env.repo }}/${{ matrix.docker_images.name }}:dev
+
+  deploy:
+    needs: build-docker
+    name: Deploy Application
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Deployment
+        run: curl ${{ vars.DOKPLOY_DEPLOY_URL }}
