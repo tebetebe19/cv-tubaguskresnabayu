@@ -2,6 +2,11 @@ name: Deploy Main
 on:
   push:
     branches: main
+
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build-docker:
     name: Build and Push Docker Images
