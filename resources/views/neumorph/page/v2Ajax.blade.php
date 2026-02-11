@@ -33,7 +33,7 @@
         </div>
     </section>
     <section id="who" class="container">
-        <h2 class="section-title">Who We Are</h2>
+        <h2 class="section-title">Who Are We</h2>
         <p class="section-sub-title">Full Team Digital Development</p>
         <div class="bag">
             <div class="row">
@@ -453,9 +453,6 @@
                                         </div>
                                         <h3>${item.fields.name}</h3>
                                         <p>${categoriesName}</p>
-                                        <a class="neumorph-pop" href="for-sale/${item.fields.slug}" target="blank">
-                                            Preview
-                                        </a>
                                     </div>
                                 </div>
                             </div>

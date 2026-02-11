@@ -61,7 +61,7 @@
         </div>
     </section>
     <section id="who" class="container">
-        <h2 class="section-title">Who We Are</h2>
+        <h2 class="section-title"></h2>
         <p class="section-sub-title">Full Team Digital Development</p>
         <div class="bag">
             <div class="row">
