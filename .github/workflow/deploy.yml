@@ -1,4 +1,4 @@
-name: Deploy Dev
+name: Deploy Main
 on:
   push:
     branches: main
@@ -32,7 +32,7 @@ jobs:
           file: ./${{ matrix.docker_images.dockerfile }}
           push: true
           tags: |
-            docker.pkg.github.com/${{ env.repo }}/${{ matrix.docker_images.name }}:dev
+            docker.pkg.github.com/${{ env.repo }}/${{ matrix.docker_images.name }}:latest
 
   deploy:
     needs: build-docker
